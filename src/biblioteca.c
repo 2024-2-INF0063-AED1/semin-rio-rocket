@@ -23,8 +23,8 @@ void adicionarLivro() {
     scanf("%d", &biblioteca[contadorLivros].ano);
     while (getchar() != '\n'); // Limpa o buffer do stdin
 
+    strcpy(biblioteca[contadorLivros].status, "Disponível");
     contadorLivros++;
-    biblioteca[contadorLivros].status = "Disponível";
     printf("Livro adicionado com sucesso!\n");
 }
 

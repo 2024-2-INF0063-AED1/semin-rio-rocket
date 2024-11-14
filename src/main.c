@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include "biblioteca.h"
+#include "usuario.h"
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
