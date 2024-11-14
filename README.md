@@ -1,5 +1,9 @@
 # Gerenciador de livros para bibliotecas (Biblioteca Manager)
 
+Diogo de Paula Quintão (202207108)
+Júlia Oliveira Cardoso da Silva (202206128)
+Lucas Pereira Brito (202201649)
+
 ## Introdução
 O **Biblioteca Manager** é um sistema desenvolvido para facilitar o gerenciamento de acervos bibliográficos em bibliotecas. Com o crescimento contínuo da quantidade de livros e a necessidade de organização eficaz, as bibliotecas enfrentam desafios como controle de inventário, gestão de empréstimos e facilidade de acesso à informação. Este projeto busca oferecer uma solução intuitiva e eficiente para melhorar a administração de acervos, otimizando o processo de cadastro, consulta, empréstimo e devolução de livros.
 
