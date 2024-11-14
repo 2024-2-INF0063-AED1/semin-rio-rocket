@@ -1,9 +1,5 @@
 # Gerenciador de livros para bibliotecas (Biblioteca Manager)
 
-Diogo de Paula Quintão (202207108)
-Júlia Oliveira Cardoso da Silva (202206128)
-Lucas Pereira Brito (202201649)
-
 ## Introdução
 O **Biblioteca Manager** é um sistema desenvolvido para facilitar o gerenciamento de acervos bibliográficos em bibliotecas. Com o crescimento contínuo da quantidade de livros e a necessidade de organização eficaz, as bibliotecas enfrentam desafios como controle de inventário, gestão de empréstimos e facilidade de acesso à informação. Este projeto busca oferecer uma solução intuitiva e eficiente para melhorar a administração de acervos, otimizando o processo de cadastro, consulta, empréstimo e devolução de livros.
 
@@ -39,3 +35,38 @@ Para o desenvolvimento do **Biblioteca Manager**, foram seguidos os seguintes pa
       - **Busca de Livros**: possibilita a consulta de livros por título ou autor.
 4. Testes e Validação:
     O sistema foi testado em diferentes cenários para garantir o funcionamento correto das funcionalidades implementadas. Foram realizados testes de cadastro, consulta, empréstimo e devolução de livros, bem como testes de busca por diferentes critérios.
+
+## Instalação
+
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/2024-2-INF0063-AED1/semin-rio-rocket.git
+    ```
+2. Acesse o diretório do projeto:
+    ```bash
+    cd semin-rio-rocket
+    ```
+## Contribuição
+
+1. Faça um fork do projeto.
+2. Crie uma nova branch:
+    ```bash
+    git checkout -b feature/nova-funcionalidade
+    ```
+3. Faça as alterações desejadas e commit:
+    ```bash
+    git commit -m 'Adiciona nova funcionalidade'
+    ```
+4. Envie para o repositório remoto:
+    ```bash
+    git push origin feature/nova-funcionalidade
+    ```
+5. Abra um Pull Request.
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Equipe
+- **Diogo de Paula Quintão** (202207108)
+- **Júlia Oliveira Cardoso da Silva** (202206128)
+- **Lucas Pereira Brito** (202201649)
