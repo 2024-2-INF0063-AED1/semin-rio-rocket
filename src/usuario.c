@@ -33,8 +33,21 @@ bool cria_usuario(){
 }
 
 void exibe_usuario() {
+    int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
+    printf("%i\n", numUsuarios);
+    //printf("%i\n", listaUsuarios[0].id);
 
-
+    
+    for (int i =0; i<numUsuarios; i++){
+        if(listaUsuarios[i].id >0){
+        printf("%i - ",listaUsuarios[i].id);
+        printf("%s - ",listaUsuarios[i].nome);
+        printf("%s - ", listaUsuarios[i].endereco);
+        printf("%s - ", listaUsuarios[i].telefone);
+        printf("\n");
+        }
+    }
+    
 }
 
 void atualiza_usuario()

@@ -7,6 +7,8 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
 
     int opcao;
+    inicializaUsuarios();
+
     inicializarLivros();
 
     while (1) { 
@@ -17,6 +19,7 @@ int main() {
         printf("----------------------------------------------------------\n");
         printf("Digite 1 para acessar conta de usuário\n");
         printf("Digite 2 para acessar conta de bibliotecário\n");
+        printf("Digite 3 para acessar a lista de usuário\n");
         printf("Digite 0 para sair\n");
         printf("----------------------------------------------------------\n");
         printf("Escolha uma opção: ");
@@ -61,6 +64,10 @@ int main() {
                         printf("\n");
                 }
             }
+        }
+        else if (opcao == 3) {
+            exibe_usuario();
+            return 0;
         }
         else if (opcao == 0) {
             printf("Saindo...\n");
