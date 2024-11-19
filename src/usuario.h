@@ -2,7 +2,7 @@
 
 #ifndef USUARIO_H
 #define USUARIO_H
-#define MAX_USUARIOS 10
+#define MAX_USUARIOS 100
 
 typedef struct {
     int id;               
@@ -15,12 +15,10 @@ extern Usuario listaUsuarios[MAX_USUARIOS];
 
 void inicializaUsuarios ();
 
-bool cria_usuario();
-
+// Funções para manipulação de usuários
+bool cria_usuario(); // Retorna true se o usuário foi criado com sucesso
 void exibe_usuario();
-
 void atualiza_usuario();
-
 void remove_usuario();
 
 #endif 
