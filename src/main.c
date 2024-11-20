@@ -5,12 +5,12 @@
 #include "biblioteca.h"
 #include "usuario.h"
 
-#define MAX_LIVROS 100
+#define TAMANHO_INICIAL_TABELA_HASH 20
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     int opcao;
-
+    inicializarTabelaHash(TAMANHO_INICIAL_TABELA_HASH);
     inicializaUsuarios();
     inicializarLivros();
 
@@ -80,12 +80,31 @@ int main() {
                     }
 
                     switch (opcao) {
-                        case 1:
-                            adicionarLivro();
+                        case 1: {
+                            int id, ano, status;
+                            char titulo[100], autor[100], categoria[100];
+                            printf("Digite o ID do livro: ");
+                            scanf("%d", &id);
+                            printf("Digite o título do livro: ");
+                            scanf(" %[^\n]", titulo);
+                            printf("Digite o autor do livro: ");
+                            scanf(" %[^\n]", autor);
+                            printf("Digite a categoria do livro: ");
+                            scanf(" %[^\n]", categoria);
+                            printf("Digite o ano do livro: ");
+                            scanf("%d", &ano);
+                            printf("Digite o status do livro (1 para disponível, 0 para emprestado): ");
+                            scanf("%d", &status);
+                            adicionarLivro(id, titulo, autor, categoria, ano, status);
                             break;
-                        case 2:
-                            removerLivro();
+                        }
+                        case 2: {
+                            int id;
+                            printf("Digite o ID do livro a ser removido: ");
+                            scanf("%d", &id);
+                            removerLivro(id);
                             break;
+                        }
                         case 3:
                             listarLivros();
                             break;

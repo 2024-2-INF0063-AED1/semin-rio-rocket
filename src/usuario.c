@@ -6,56 +6,49 @@
 Usuario listaUsuarios[MAX_USUARIOS];
 
 void inicializaUsuarios() {
-    listaUsuarios[0].id = 1;
-    strcpy(listaUsuarios[0].nome, "Julia Oliveira");
-    strcpy(listaUsuarios[0].telefone, "62999999999");
-    strcpy(listaUsuarios[0].endereco, "Av c 5");
-
-    listaUsuarios[1].id = 2;
-    strcpy(listaUsuarios[1].nome, "Diogo Quintão");
-    strcpy(listaUsuarios[1].telefone, "62988888888");
-    strcpy(listaUsuarios[1].endereco, "Jao");
-
-    listaUsuarios[2].id = 3;
-    strcpy(listaUsuarios[2].nome, "Lucas Pereira");
-    strcpy(listaUsuarios[2].telefone, "62977777777");
-    strcpy(listaUsuarios[2].endereco, "Universitario");
+    Usuario usuariosIniciais[] = {
+        {1, "Julia Oliveira", "1234567891", "Rua GitHub"},
+        {2, "Diogo Quintão", "1234567891", "Avenida GitLab"},
+        {3, "Lucas Pereira", "1234567891", "Praça Git"}
+    };
+    
+    int numUsuariosIniciais = sizeof(usuariosIniciais) / sizeof(usuariosIniciais[0]);
+    for (int i = 0; i < numUsuariosIniciais && i < MAX_USUARIOS; i++) {
+        listaUsuarios[i] = usuariosIniciais[i];
+    }
 }
 
-bool cria_usuario(){
+bool cria_usuario() {
     int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
-    if (numUsuarios >= MAX_USUARIOS ){
+    if (numUsuarios >= MAX_USUARIOS) {
         return false;
-    }else{
+    } else {
         return true;
     }
-
 }
 
 void exibe_usuario() {
-    int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
-    printf("%i\n", numUsuarios);
-    //printf("%i\n", listaUsuarios[0].id);
+    int numUsuarios = 0;
+    while (numUsuarios < MAX_USUARIOS && listaUsuarios[numUsuarios].id != 0) {
+        numUsuarios++;
+    }
+    printf("Número de usuários: %d\n", numUsuarios);
 
-    
-    for (int i =0; i<numUsuarios; i++){
-        if(listaUsuarios[i].id >0){
-        printf("%i - ",listaUsuarios[i].id);
-        printf("%s - ",listaUsuarios[i].nome);
-        printf("%s - ", listaUsuarios[i].endereco);
-        printf("%s - ", listaUsuarios[i].telefone);
-        printf("\n");
+    for (int i = 0; i < numUsuarios; i++) {
+        if (listaUsuarios[i].id > 0) {
+            printf("%d - ", listaUsuarios[i].id);
+            printf("%s - ", listaUsuarios[i].nome);
+            printf("%s - ", listaUsuarios[i].endereco);
+            printf("%s - ", listaUsuarios[i].telefone);
+            printf("\n");
         }
     }
-    
 }
 
-void atualiza_usuario()
-{
+void atualiza_usuario() {
     // função atualizar usuario
 }
 
-void remove_usuario()
-{
+void remove_usuario() {
     // função remover usuario
 }

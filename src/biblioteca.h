@@ -1,25 +1,23 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
 
-#define MAX_LIVROS 100
-
-typedef struct {
+typedef struct Livro {
     int id;
-    char nome[100];
+    char titulo[100];
     char autor[100];
     char categoria[100];
     int ano;
-    bool status; // 1 para disponível, 0 para emprestado
+    int status; // 1 para disponível, 0 para emprestado
+    struct Livro* proximo;
 } Livro;
 
-// Declaração do array de livros e contador global
-extern Livro biblioteca[MAX_LIVROS];
-extern int contadorLivros;
-
-// Funções para manipulação da biblioteca
-void adicionarLivro();
-void removerLivro();
-void listarLivros();
+void inicializarTabelaHash(int tamanhoInicial);
+void redimensionarTabelaHash();
 void inicializarLivros();
+Livro* criarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
+void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
+void atualizarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
+void removerLivro(int id);
+void listarLivros();
 
 #endif
