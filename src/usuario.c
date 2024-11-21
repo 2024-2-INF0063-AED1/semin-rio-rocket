@@ -43,6 +43,17 @@ void exibe_usuario() {
             printf("\n");
         }
     }
+    printf("\n\n");
+}
+bool usuario_cadastrado(int codUsuario){
+    int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
+    if (codUsuario > 0 && codUsuario < numUsuarios && codUsuario < MAX_USUARIOS){
+        printf("Bem Vindo, %s\n",listaUsuarios[codUsuario -1].nome);
+        return true;
+
+    }else{
+        return false;
+    }
 }
 
 void atualiza_usuario() {

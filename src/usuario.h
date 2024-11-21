@@ -20,5 +20,7 @@ bool cria_usuario(); // Retorna true se o usuário foi criado com sucesso
 void exibe_usuario();
 void atualiza_usuario();
 void remove_usuario();
+bool usuario_cadastrado(int codUsuario);
+
 
 #endif 
