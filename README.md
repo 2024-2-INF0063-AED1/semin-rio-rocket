@@ -28,30 +28,33 @@ Esses dados serão armazenados em listas ou árvores binárias para facilitar a 
 
 ## Metodologia
 
-Para o desenvolvimento do **Biblioteca Manager**, foram seguidos os seguintes passos:
-1. Planejamento e Levantamento de Requisitos:
-    - Inicialmente, foi realizada uma análise dos problemas comuns enfrentados pelas bibliotecas no gerenciamento de acervos e empréstimos. A partir dessa análise, foram identificadas as funcionalidades essenciais do sistema, tais como:
-      - Cadastro de livros;
-      - Classificação dos livros por categorias (por exemplo, ficção, ciência, história);
-      - Empréstimo e devolução de livros;
-      - Consulta e busca de livros por título ou autor.
+# Metodologia do Desenvolvimento do **Biblioteca Manager**
+
+| **Etapa**                         | **Descrição**                                                                                                           |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| **1. Planejamento e Levantamento de Requisitos** | - Análise de problemas comuns no gerenciamento de acervos e empréstimos.                                               |
+|                                      | - Definição de funcionalidades essenciais do sistema:                                                                  |
+|                                      |   - Cadastro de livros;                                                                                                |
+|                                      |   - Classificação por categorias (e.g., ficção, ciência, história);                                                    |
+|                                      |   - Empréstimo e devolução de livros;                                                                                  |
+|                                      |   - Consulta e busca por título ou autor.                                                                              |
+| **2. Definição das Estruturas de Dados**       | - Uso de **structs** para modelar as informações:                                                                      |
+|                                      |   - **Livro**: armazena título, autor, categoria, status (disponível/indisponível) e identificador único (ID).          |
+|                                      |   - **Usuário**: contém nome e identificador do usuário.                                                               |
+|                                      | - Implementação de uma lista de livros para gerenciar o acervo da biblioteca.                                          |
+| **3. Desenvolvimento do Sistema**             | - Implementação em C, focando em eficiência e controle de memória.                                                    |
+|                                      | - Desenvolvimento das seguintes funcionalidades:                                                                       |
+|                                      |   - **Adicionar Livro**: cadastro de novos livros;                                                                     |
+|                                      |   - **Listar Livros por Categoria**: exibe livros disponíveis em uma categoria específica;                             |
+|                                      |   - **Empréstimo de Livro**: permite que usuários solicitem empréstimos, alterando o status para indisponível;          |
+|                                      |   - **Devolução de Livro**: registra a devolução, tornando o livro disponível novamente;                               |
+|                                      |   - **Busca de Livros**: consulta livros por título ou autor.                                                          |
+| **4. Testes e Validação**                     | - Realização de testes para validar as funcionalidades em diferentes cenários:                                         |
+|                                      |   - Cadastro, consulta, empréstimo e devolução de livros;                                                              |
+|                                      |   - Busca de livros por critérios variados (título e autor).                                                           |
 
 
-2. Definição das Estruturas de Dados:
-    - Para representar as informações dos livros e dos usuários, foram utilizadas estruturas de dados em C (structs). As principais estruturas definidas foram:
-      - **Livro**: contendo informações como título, autor, categoria, status de disponibilidade e identificador único (ID).
-      - **Usuário**: armazenando dados do usuário que efetua o empréstimo, como nome e identificador.
-    - Além disso, foi criada uma lista de livros para armazenar o acervo da biblioteca.
-3. Desenvolvimento do Sistema:
-    - O sistema foi implementado utilizando a linguagem de programação C, escolhida devido à sua eficiência e controle de memória, o que permite o gerenciamento eficaz de dados.
-    - Foram criadas funções para realizar as principais operações:
-      - **Adicionar Livro**: permite o cadastro de novos livros no sistema.
-      - **Listar Livros por Categoria**: apresenta os livros disponíveis em determinada categoria.
-      - **Empréstimo de Livro**: permite que um usuário solicite o empréstimo de um livro, alterando seu status para indisponível.
-      - **Devolução de Livro**: permite a devolução de um livro, tornando-o disponível novamente para empréstimo.
-      - **Busca de Livros**: possibilita a consulta de livros por título ou autor.
-4. Testes e Validação:
-    O sistema foi testado em diferentes cenários para garantir o funcionamento correto das funcionalidades implementadas. Foram realizados testes de cadastro, consulta, empréstimo e devolução de livros, bem como testes de busca por diferentes critérios.
+
 
 ## Instalação
 
