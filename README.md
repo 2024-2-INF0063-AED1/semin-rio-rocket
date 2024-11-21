@@ -28,8 +28,6 @@ Esses dados serão armazenados em listas ou árvores binárias para facilitar a 
 
 ## Metodologia
 
-# Metodologia do Desenvolvimento do **Biblioteca Manager**
-
 | **Etapa**                         | **Descrição**                                                                                                           |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | **1. Planejamento e Levantamento de Requisitos** | - Análise de problemas comuns no gerenciamento de acervos e empréstimos.                                               |
