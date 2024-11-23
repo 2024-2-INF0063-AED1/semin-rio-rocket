@@ -12,13 +12,20 @@ Este relatório apresenta o desenvolvimento de um sistema de gerenciamento de li
 Árvores Binárias, Biblioteca, C, Gerenciamento, Organização de Acervo
 
 ## Introdução
+### Problema
+O Biblioteca Manager é um sistema desenvolvido para facilitar o gerenciamento de acervos bibliográficos em bibliotecas. Com o crescimento contínuo da quantidade de livros e a necessidade de organização eficaz, as bibliotecas enfrentam desafios como controle de inventário, gestão de empréstimos e facilidade de acesso à informação. Este projeto busca oferecer uma solução intuitiva e eficiente para melhorar a administração de acervos, otimizando o processo de cadastro, consulta, empréstimo e devolução de livros.
+
 ### Dataset
 O sistema não depende de um dataset pré-existente, mas permitirá o cadastro dinâmico de livros pelos usuários. Cada entrada incluirá campos como:  
 - Título  
 - Autor  
 - Gênero  
 - Código de identificação (ID)  
-- Status de empréstimo  
+- Status de empréstimo
+### Métodos
+Os métodos revisados incluirão:
+Serão utilizados listas para armazenagem de usuário e livros. Além disso, iremos estudar os métodos de ordenação para verificar qual seria o mais eficiente para o nosso projeto.
+
 
 Esses dados serão armazenados em listas ou árvores binárias para facilitar a consulta.
 
