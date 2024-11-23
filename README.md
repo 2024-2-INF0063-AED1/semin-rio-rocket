@@ -27,8 +27,8 @@ Os métodos revisados incluirão:
 Serão utilizados listas para armazenagem de usuário e livros. Além disso, iremos estudar os métodos de ordenação para verificar qual seria o mais eficiente para o nosso projeto.
 ### Avaliação
 Os resultados serão medidos utilizando métricas como:
-Complexidade Temporal: Analisando o tempo necessário para operações como inserção, remoção e busca em diferentes estruturas.
-Uso da Memória: Avaliando a eficiência do uso da memória pelas estruturas implementadas.
+- Complexidade Temporal: Analisando o tempo necessário para operações como inserção, remoção e busca em diferentes estruturas.
+- Uso da Memória: Avaliando a eficiência do uso da memória pelas estruturas implementadas.
 Essas métricas permitirão uma avaliação abrangente da eficácia do gerenciador de livros proposto sob a perspectiva das estruturas de dados.
 
 Esses dados serão armazenados em listas ou árvores binárias para facilitar a consulta.
