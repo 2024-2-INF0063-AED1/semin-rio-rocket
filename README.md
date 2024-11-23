@@ -25,13 +25,13 @@ O sistema não depende de um dataset pré-existente, mas permitirá o cadastro d
 ### Métodos
 Os métodos revisados incluirão:
 Serão utilizados listas para armazenagem de usuário e livros. Além disso, iremos estudar os métodos de ordenação para verificar qual seria o mais eficiente para o nosso projeto.
-
+### Avaliação
+Os resultados serão medidos utilizando métricas como:
+Complexidade Temporal: Analisando o tempo necessário para operações como inserção, remoção e busca em diferentes estruturas.
+Uso da Memória: Avaliando a eficiência do uso da memória pelas estruturas implementadas.
+Essas métricas permitirão uma avaliação abrangente da eficácia do gerenciador de livros proposto sob a perspectiva das estruturas de dados.
 
 Esses dados serão armazenados em listas ou árvores binárias para facilitar a consulta.
-
-## Fundamentos téoricos
- O **Biblioteca Manager** foi desenvolvido com base em técnicas e algoritmos fundamentais da programação, utilizando a linguagem C para garantir eficiência no controle de memória e no processamento das operações. A seguir, são descritos os principais mecanismos e técnicas utilizadas, bem como as formas de avaliação do sistema:
- 
 
 ## Metodologia
 
