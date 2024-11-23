@@ -45,8 +45,7 @@ O sistema não depende de um dataset pré-existente, mas permitirá o cadastro d
   
 Esses dados serão armazenados em listas para facilitar a consulta.
 ### Métodos
-Os métodos revisados incluirão:
-Serão utilizados listas para armazenagem de usuário e livros. Além disso, iremos estudar os métodos de ordenação para verificar qual seria o mais eficiente para o nosso projeto.
+Os métodos revisados incluirão o uso de listas como estrutura principal para o armazenamento de usuários e livros no sistema. Paralelamente, será realizada uma análise detalhada de diferentes algoritmos de ordenação, como Bubble Sort, Quick Sort e Merge Sort, a fim de identificar aquele que oferece o melhor desempenho e eficiência para as necessidades específicas do projeto. Essa abordagem garantirá uma organização eficiente dos dados e um processamento otimizado dentro do sistema gerenciador.
 ### Avaliação
 Os resultados serão medidos utilizando métricas como:
 - Complexidade Temporal: Analisando o tempo necessário para operações como inserção, remoção e busca em diferentes estruturas.
