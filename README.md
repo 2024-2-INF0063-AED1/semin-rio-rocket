@@ -17,21 +17,22 @@ O Biblioteca Manager é um sistema desenvolvido para facilitar o gerenciamento d
 
 ### Literatura
 
-Nesta seção, são apresentadas três fontes relevantes que fundamentam o desenvolvimento do sistema gerenciador de livros, destacando informações técnicas e inspiracionais.
+Nesta seção, Apresentamos três fontes relevantes que fundamentam o desenvolvimento do sistema gerenciador de livros, destacando informações técnicas e inspiracionais.
 
-- 1. Investimentos na Biblioteca Nacional: Impulsionando o Acesso à Informação
-Descrição da fonte: O artigo publicado pela Agência Brasil aborda os investimentos de R$ 30 milhões destinados à Biblioteca Nacional em 2023. O objetivo dos recursos é modernizar as instalações, ampliar o acesso ao acervo e priorizar iniciativas como digitalização e preservação de obras históricas.
-Contribuição para o tema: Esta fonte inspira a implementação de melhorias em bibliotecas digitais, destacando a relevância de um sistema robusto que facilite o acesso e a gestão de acervos. As iniciativas mencionadas alinham-se com os objetivos do projeto, especialmente no que diz respeito à organização e acessibilidade dos conteúdos.
+Investimentos na Biblioteca Nacional: Impulsionando o Acesso à Informação
+- Descrição: O artigo publicado pela Agência Brasil aborda os investimentos de R$ 30 milhões destinados à Biblioteca Nacional em 2023. O objetivo dos recursos é modernizar as instalações, ampliar o acesso ao acervo e priorizar iniciativas como digitalização e preservação de obras históricas.
+- Contribuição para o tema: Esta fonte inspira a implementação de melhorias em bibliotecas digitais, destacando a relevância de um sistema robusto que facilite o acesso e a gestão de acervos. As iniciativas mencionadas alinham-se com os objetivos do projeto, especialmente no que diz respeito à organização e acessibilidade dos conteúdos.
 
-- 2. Algoritmos de Ordenação em Python, Java e C: Otimização no Gerenciamento de Dados
-Descrição da fonte: Publicado no site FreeCodeCamp, o artigo apresenta explicações detalhadas sobre algoritmos de ordenação, como Bubble Sort, Quick Sort e Merge Sort, com exemplos práticos em Python, Java e C.
-Contribuição para o tema: Fornece embasamento técnico para otimizar a organização de dados no sistema gerenciador de livros. Aplicações diretas incluem a ordenação de listas de livros, usuários e funcionários, garantindo maior eficiência no processamento e na recuperação de informações.
+Algoritmos de Ordenação em Python, Java e C: Otimização no Gerenciamento de Dados
+- Descrição: Publicado no site FreeCodeCamp, o artigo apresenta explicações detalhadas sobre algoritmos de ordenação, como Bubble Sort, Quick Sort e Merge Sort, com exemplos práticos em Python, Java e C.
+- Contribuição para o tema: Fornece embasamento técnico para otimizar a organização de dados no sistema gerenciador de livros. Aplicações diretas incluem a ordenação de listas de livros, usuários e funcionários, garantindo maior eficiência no processamento e na recuperação de informações.
 
-- 3. Sistema de Gerenciamento para Biblioteca: Uma Abordagem Acadêmica
-Descrição da fonte: Este Trabalho de Conclusão de Curso, elaborado por Giovanne Marangoni Martins, explora o desenvolvimento de um sistema de gerenciamento para bibliotecas. Entre as funcionalidades destacadas estão o cadastro de livros, controle de empréstimos e devoluções, além da organização do acervo.
-Contribuição para o tema: A pesquisa oferece insights práticos para o desenvolvimento de sistemas similares, servindo como referência para funcionalidades essenciais no gerenciamento de bibliotecas, como as relacionadas ao controle de fluxos e organização de registros.
+Sistema de Gerenciamento para Biblioteca: Uma Abordagem Acadêmica
+- Descrição: Este Trabalho de Conclusão de Curso, elaborado por Giovanne Marangoni Martins, explora o desenvolvimento de um sistema de gerenciamento para bibliotecas. Entre as funcionalidades destacadas estão o cadastro de livros, controle de empréstimos e devoluções, além da organização do acervo.
+- Contribuição para o tema: A pesquisa oferece insights práticos para o desenvolvimento de sistemas similares, servindo como referência para funcionalidades essenciais no gerenciamento de bibliotecas, como as relacionadas ao controle de fluxos e organização de registros.
 
 Análise comparativa:
+
 As três fontes se complementam ao unir perspectivas inspiracionais, técnicas e práticas. Enquanto a modernização da Biblioteca Nacional ressalta a importância de um sistema eficiente e acessível, o artigo do FreeCodeCamp contribui com a base técnica para otimizar o desempenho do sistema. O trabalho acadêmico, por sua vez, apresenta funcionalidades práticas, criando um guia direto para a implementação de um gerenciador de bibliotecas. Essa integração sustenta o desenvolvimento do projeto em múltiplos níveis.
 
 ### Dataset
