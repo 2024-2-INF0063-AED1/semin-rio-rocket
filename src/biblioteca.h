@@ -8,16 +8,22 @@ typedef struct Livro {
     char categoria[100];
     int ano;
     int status; // 1 para disponível, 0 para emprestado
-    struct Livro* proximo;
+    struct Livro *proximo;
 } Livro;
 
-void inicializarTabelaHash(int tamanhoInicial);
-void redimensionarTabelaHash();
+extern Livro* listaLivros;
+
 void inicializarLivros();
-Livro* criarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
 void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
 void atualizarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
 void removerLivro(int id);
 void listarLivros();
+void buscarLivroPorId(int id);
+void buscarLivroPorTitulo(char* titulo);
+void buscarLivroPorAutor(char* autor);
+void buscarLivroPorCategoria(char* categoria);
+void buscarLivroPorAno(int ano);
+void buscarLivroPorStatus(int status);
+
 
 #endif
