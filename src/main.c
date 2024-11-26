@@ -77,6 +77,12 @@ int main()
                 printf("Digite 1 para adicionar um livro\n");
                 printf("Digite 2 para remover um livro\n");
                 printf("Digite 3 para listar todos os livros\n");
+                printf("Digite 4 para buscar um livro por ID\n");
+                printf("Digite 5 para buscar um livro por título\n");
+                printf("Digite 6 para buscar um livro por autor\n");
+                printf("Digite 7 para buscar um livro por categoria\n");
+                printf("Digite 8 para buscar um livro por ano\n");
+                printf("Digite 9 para buscar um livro por status\n");
                 printf("Digite 0 para sair\n");
                 printf("\nEscolha uma opção: ");
 
@@ -150,6 +156,75 @@ int main()
                     {
                         listarLivros();
                     }
+                    break;
+                }
+                case 4:
+                {
+                    int id;
+                    printf("Digite o ID do livro a ser buscado: ");
+                    while (scanf("%d", &id) != 1 || id <= 0)
+                    {
+                        while (getchar() != '\n')
+                            ;
+                        printf("ID inválido. Digite um número positivo: ");
+                    }
+                    buscarLivroPorId(id);
+                    break;
+                }
+                case 5:
+                {
+                    char titulo[100];
+                    printf("Digite o título do livro a ser buscado: ");
+                    while (getchar() != '\n')
+                        ;
+                    scanf(" %[^\n]", titulo);
+                    buscarLivroPorTitulo(titulo);
+                    break;
+                }
+                case 6:
+                {
+                    char autor[100];
+                    printf("Digite o autor do livro a ser buscado: ");
+                    while (getchar() != '\n')
+                        ;
+                    scanf(" %[^\n]", autor);
+                    buscarLivroPorAutor(autor);
+                    break;
+                }
+                case 7:
+                {
+                    char categoria[100];
+                    printf("Digite a categoria do livro a ser buscado: ");
+                    while (getchar() != '\n')
+                        ;
+                    scanf(" %[^\n]", categoria);
+                    buscarLivroPorCategoria(categoria);
+                    break;
+                }
+                case 8:
+                {
+                    int ano;
+                    printf("Digite o ano do livro a ser buscado: ");
+                    while (scanf("%d", &ano) != 1 || ano <= 0)
+                    {
+                        while (getchar() != '\n')
+                            ;
+                        printf("Ano inválido. Digite um número positivo: ");
+                    }
+                    buscarLivroPorAno(ano);
+                    break;
+                }
+                case 9:
+                {
+                    int status;
+                    printf("Digite o status do livro a ser buscado (1 para disponível, 0 para emprestado): ");
+                    while (scanf("%d", &status) != 1 || (status != 0 && status != 1))
+                    {
+                        while (getchar() != '\n')
+                            ;
+                        printf("Status inválido. Digite 0 ou 1: ");
+                    }
+                    buscarLivroPorStatus(status);
                     break;
                 }
                 case 0:

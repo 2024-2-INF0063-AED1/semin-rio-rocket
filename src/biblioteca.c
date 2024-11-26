@@ -4,9 +4,10 @@
 #include <string.h>
 
 // Ponteiro para o início da lista de livros
-Livro* listaLivros = NULL;
+Livro *listaLivros = NULL;
 
-void inicializarLivros() {
+void inicializarLivros()
+{
     adicionarLivro(1, "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", 1954, 1);
     adicionarLivro(2, "Dom Casmurro", "Machado de Assis", "Romance", 1899, 1);
     adicionarLivro(3, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Infantil", 1943, 1);
@@ -107,11 +108,19 @@ void inicializarLivros() {
     adicionarLivro(98, "Grande Sertão: Veredas", "João Guimarães Rosa", "Romance", 1956, 1);
     adicionarLivro(99, "Vidas Secas", "Graciliano Ramos", "Romance", 1938, 1);
     adicionarLivro(100, "Macunaíma", "Mário de Andrade", "Romance", 1928, 1);
+    adicionarLivro(101, "Macunaíma", "Mário de Andrade", "Romance", 1928, 1);
+    adicionarLivro(102, "Macunaíma", "Mário de Andrade", "Romance", 1928, 1);
 }
 
-void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status) {
+const char *obterStatusTexto(StatusLivro status)
+{
+    return status == DISPONIVEL ? "Disponível" : "Indisponível";
+}
+
+void adicionarLivro(int id, char *titulo, char *autor, char *categoria, int ano, int status)
+{
     // Criar novo livro
-    Livro* novoLivro = (Livro*)malloc(sizeof(Livro));
+    Livro *novoLivro = (Livro *)malloc(sizeof(Livro));
     novoLivro->id = id;
     strcpy(novoLivro->titulo, titulo);
     strcpy(novoLivro->autor, autor);
@@ -121,11 +130,15 @@ void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano,
     novoLivro->proximo = NULL;
 
     // Adicionar à lista
-    if (listaLivros == NULL) {
+    if (listaLivros == NULL)
+    {
         listaLivros = novoLivro;
-    } else {
-        Livro* atual = listaLivros;
-        while (atual->proximo != NULL) {
+    }
+    else
+    {
+        Livro *atual = listaLivros;
+        while (atual->proximo != NULL)
+        {
             atual = atual->proximo;
         }
         atual->proximo = novoLivro;
@@ -133,11 +146,13 @@ void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano,
     printf("Livro inserido com sucesso!\n");
 }
 
-
-void atualizarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status) {
-    Livro* atual = listaLivros;
-    while (atual != NULL) {
-        if (atual->id == id) {
+void atualizarLivro(int id, char *titulo, char *autor, char *categoria, int ano, int status)
+{
+    Livro *atual = listaLivros;
+    while (atual != NULL)
+    {
+        if (atual->id == id)
+        {
             strcpy(atual->titulo, titulo);
             strcpy(atual->autor, autor);
             strcpy(atual->categoria, categoria);
@@ -151,23 +166,29 @@ void atualizarLivro(int id, char* titulo, char* autor, char* categoria, int ano,
     printf("Livro não encontrado!\n");
 }
 
-void removerLivro(int id) {
-    Livro* atual = listaLivros;
-    Livro* anterior = NULL;
+void removerLivro(int id)
+{
+    Livro *atual = listaLivros;
+    Livro *anterior = NULL;
 
-    while (atual != NULL && atual->id != id) {
+    while (atual != NULL && atual->id != id)
+    {
         anterior = atual;
         atual = atual->proximo;
     }
 
-    if (atual == NULL) {
+    if (atual == NULL)
+    {
         printf("Livro não encontrado!\n");
         return;
     }
 
-    if (anterior == NULL) {
+    if (anterior == NULL)
+    {
         listaLivros = atual->proximo;
-    } else {
+    }
+    else
+    {
         anterior->proximo = atual->proximo;
     }
 
@@ -175,19 +196,36 @@ void removerLivro(int id) {
     printf("Livro removido com sucesso!\n");
 }
 
-void listarLivros() {
-    Livro* atual = listaLivros;
-    while (atual != NULL) {
-        printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n", atual->id, atual->titulo, atual->autor, atual->categoria, atual->ano, atual->status == 1 ? "Disponível" : "Indisponível");
+void listarLivros()
+{
+    Livro *atual = listaLivros;
+    while (atual != NULL)
+    {
+        printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+            atual->id, 
+            atual->titulo,
+            atual->autor, 
+            atual->categoria,
+            atual->ano,
+            obterStatusTexto(atual->status));
         atual = atual->proximo;
     }
 }
 
-void buscarLivroPorId(int id) {
-    Livro* atual = listaLivros;
-    while (atual != NULL) {
-        if (atual->id == id) {
-            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %d\n", atual->id, atual->titulo, atual->autor, atual->categoria, atual->ano, atual->status == 1 ? "Disponível" : "Indisponível");
+void buscarLivroPorId(int id)
+{
+    Livro *atual = listaLivros;
+    while (atual != NULL)
+    {
+        if (atual->id == id)
+        {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+                atual->id,
+                atual->titulo,
+                atual->autor,
+                atual->categoria, 
+                atual->ano,
+                obterStatusTexto(atual->status));
             return;
         }
         atual = atual->proximo;
@@ -195,19 +233,262 @@ void buscarLivroPorId(int id) {
     printf("Livro não encontrado!\n");
 }
 
-void buscarLivroPorTítulo(char* titulo) {
-    Livro* atual = listaLivros;
-    while (atual != NULL) {
-        if (strcmp(atual->titulo, titulo) == 0) {
-            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %d\n", atual->id, atual->titulo, atual->autor, atual->categoria, atual->ano, atual->status == 1 ? "Disponível" : "Indisponível");
-            return;
+void buscarLivroPorTitulo(char *titulo)
+{   
+    const int MAX_LIVROS = 100;
+    Livro* lista[MAX_LIVROS];  // Array para armazenar ponteiros para livros
+    int quantidade = 0;  // Contador de livros encontrados
+    Livro *atual = listaLivros;
+    
+    // Busca os livros e armazena na lista
+    while (atual != NULL && quantidade < MAX_LIVROS)
+    {
+        if (strcmp(atual->titulo, titulo) == 0)
+        {
+            lista[quantidade] = atual;
+            quantidade++;
         }
         atual = atual->proximo;
     }
-    printf("Livro não encontrado!\n");
+
+    //Ordenação da lista por ID
+    for (int i = 0; i < quantidade; i++)
+    {
+        for (int j = i + 1; j < quantidade; j++)
+        {
+            if (lista[i]->id > lista[j]->id)
+            {
+                Livro *temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
+            }
+        }
+    }
+    
+    // Exibe os resultados
+    if (quantidade > 0)
+    {
+        printf("\nForam encontrados %d livro(s) com o título '%s':\n", quantidade, titulo);
+        for (int i = 0; i < quantidade; i++)
+        {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+                lista[i]->id,
+                lista[i]->titulo,
+                lista[i]->autor,
+                lista[i]->categoria,
+                lista[i]->ano,
+                obterStatusTexto(lista[i]->status));
+        }
+    }
+    else
+    {
+        printf("Nenhum livro encontrado com o título '%s'!\n", titulo);
+    }
 }
 
-void buscarLivroPorAutor(char* autor){}
-void buscarLivroPorCategoria(char* categoria){}
-void buscarLivroPorAno(int ano){}
-void buscarLivroPorStatus(int status){}
+void buscarLivroPorAutor(char *autor)
+{
+    const int MAX_LIVROS = 100;
+    Livro* lista[MAX_LIVROS];  // Array para armazenar ponteiros para livros
+    int quantidade = 0;  // Contador de livros encontrados
+    Livro *atual = listaLivros;
+    
+    // Busca os livros e armazena na lista
+    while (atual != NULL && quantidade < MAX_LIVROS)
+    {
+        if (strcmp(atual->autor, autor) == 0)
+        {
+            lista[quantidade] = atual;
+            quantidade++;
+        }
+        atual = atual->proximo;
+    }
+    
+    //Ordenação da lista por ID
+    for (int i = 0; i < quantidade; i++)
+    {
+        for (int j = i + 1; j < quantidade; j++)
+        {
+            if (lista[i]->id > lista[j]->id)
+            {
+                Livro *temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
+            }
+        }
+    }
+    // Exibe os resultados
+    if (quantidade > 0)
+    {
+        printf("\nForam encontrados %d livro(s) do autor '%s':\n", quantidade, autor);
+        for (int i = 0; i < quantidade; i++)
+        {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+                lista[i]->id,
+                lista[i]->titulo,
+                lista[i]->autor,
+                lista[i]->categoria,
+                lista[i]->ano,
+                obterStatusTexto(lista[i]->status));
+        }
+    }
+    else
+    {
+        printf("Nenhum livro encontrado do autor '%s'!\n", autor);
+    }
+}
+
+void buscarLivroPorCategoria(char *categoria)
+{
+    const int MAX_LIVROS = 100;
+    Livro* lista[MAX_LIVROS];  // Array para armazenar ponteiros para livros
+    int quantidade = 0;  // Contador de livros encontrados
+    Livro *atual = listaLivros;
+    
+    // Busca os livros e armazena na lista
+    while (atual != NULL && quantidade < MAX_LIVROS)
+    {
+        if (strcmp(atual->categoria, categoria) == 0)
+        {
+            lista[quantidade] = atual;
+            quantidade++;
+        }
+        atual = atual->proximo;
+    }
+    
+    //Ordenação da lista por ID
+    for (int i = 0; i < quantidade; i++)
+    {
+        for (int j = i + 1; j < quantidade; j++)
+        {
+            if (lista[i]->id > lista[j]->id)
+            {
+                Livro *temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
+            }
+        }
+    }
+    // Exibe os resultados
+    if (quantidade > 0)
+    {
+        printf("\nForam encontrados %d livro(s) da categoria '%s':\n", quantidade, categoria);
+        for (int i = 0; i < quantidade; i++)
+        {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+                lista[i]->id,
+                lista[i]->titulo,
+                lista[i]->autor,
+                lista[i]->categoria,
+                lista[i]->ano,
+                obterStatusTexto(lista[i]->status));
+        }
+    }
+    else
+    {
+        printf("Nenhum livro encontrado da categoria '%s'!\n", categoria);
+    }
+}
+
+void buscarLivroPorAno(int ano)
+{
+    const int MAX_LIVROS = 100;
+    Livro* lista[MAX_LIVROS];  // Array para armazenar ponteiros para livros
+    int quantidade = 0;  // Contador de livros encontrados
+    Livro *atual = listaLivros;
+    
+    // Busca os livros e armazena na lista
+    while (atual != NULL && quantidade < MAX_LIVROS)
+    {
+        if (atual->ano == ano)
+        {
+            lista[quantidade] = atual;
+            quantidade++;
+        }
+        atual = atual->proximo;
+    }
+    
+    //Ordenação da lista por ID
+    for (int i = 0; i < quantidade; i++)
+    {
+        for (int j = i + 1; j < quantidade; j++)
+        {
+            if (lista[i]->id > lista[j]->id)
+            {
+                Livro *temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
+            }
+        }
+    }
+    // Exibe os resultados
+    if (quantidade > 0)
+    {
+        printf("\nForam encontrados %d livro(s) do ano %d:\n", quantidade, ano);
+        for (int i = 0; i < quantidade; i++)
+        {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+                lista[i]->id,
+                lista[i]->titulo,
+                lista[i]->autor,
+                lista[i]->categoria,
+                lista[i]->ano,
+                obterStatusTexto(lista[i]->status));
+        }
+    }
+    else
+    {
+        printf("Nenhum livro encontrado do ano %d!\n", ano);
+    }
+}
+
+void buscarLivroPorStatus(int status)
+{
+    const int MAX_LIVROS = 100;
+    Livro* lista[MAX_LIVROS];  // Array para armazenar ponteiros para livros
+    int quantidade = 0;  // Contador de livros encontrados
+    Livro *atual = listaLivros;
+    
+    // Busca os livros e armazena na lista
+    while (atual != NULL && quantidade < MAX_LIVROS)
+    {
+        if (atual->status == status)
+        {
+            lista[quantidade] = atual;
+            quantidade++;
+        }
+        atual = atual->proximo;
+    }
+    //Ordenação da lista por ID
+    for (int i = 0; i < quantidade; i++)
+    {
+        for (int j = i + 1; j < quantidade; j++)
+        {
+            if (lista[i]->id > lista[j]->id)
+            {
+                Livro *temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
+            }
+        }
+    }
+    // Exibe os resultados
+    if (quantidade > 0)
+    {
+        printf("\nForam encontrados %d livro(s) com status %s:\n", quantidade, obterStatusTexto(status));
+        for (int i = 0; i < quantidade; i++)
+        {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
+                lista[i]->id,
+                lista[i]->titulo,
+                lista[i]->autor,
+                lista[i]->categoria,
+                lista[i]->ano,
+                obterStatusTexto(lista[i]->status));
+        }
+    }
+    else
+    {
+        printf("Nenhum livro encontrado com status %s!\n", obterStatusTexto(status));
+    }
+}

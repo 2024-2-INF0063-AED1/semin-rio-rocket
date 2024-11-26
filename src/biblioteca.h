@@ -1,18 +1,23 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
 
+typedef enum {
+    INDISPONIVEL = 0,
+    DISPONIVEL = 1
+} StatusLivro;
 typedef struct Livro {
     int id;
     char titulo[100];
     char autor[100];
     char categoria[100];
     int ano;
-    int status; // 1 para disponível, 0 para emprestado
+    StatusLivro status;
     struct Livro *proximo;
 } Livro;
 
 extern Livro* listaLivros;
 
+const char* obterStatusTexto(StatusLivro status);
 void inicializarLivros();
 void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
 void atualizarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
