@@ -238,6 +238,31 @@ int main()
 
         case 3:
             exibe_usuario();
+
+            printf("Deseja selecionar um usuário?\n");
+            printf("0 - Não\n1 - Sim\n");
+
+            if (scanf("%d", &opcao) != 1) {
+                while (getchar() != '\n');
+                printf("Entrada inválida! Tente novamente.\n");
+                continue;
+            }
+            
+            if (opcao == 1) {
+                printf("Digite o código do usuário: ");
+
+                if (scanf("%d", &opcao) != 1) {
+                    while (getchar() != '\n');
+                    printf("Entrada inválida! Tente novamente.\n");
+                    continue;
+                }
+
+                if (usuario_cadastrado(opcao)) {
+                    seleciona_usuario(opcao);
+                } else {
+                    printf("Usuário inválido!\n\n");
+                }
+            }
             break;
 
         case 0:

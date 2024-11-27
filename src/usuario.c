@@ -43,21 +43,49 @@ void exibe_usuario() {
             printf("\n");
         }
     }
-    printf("\n\n");
+    printf("\n");
 }
+
 bool usuario_cadastrado(int codUsuario){
     int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
-    if (codUsuario > 0 && codUsuario < numUsuarios && codUsuario < MAX_USUARIOS){
-        printf("Bem Vindo, %s\n",listaUsuarios[codUsuario -1].nome);
+    if (codUsuario > 0 && codUsuario < numUsuarios && listaUsuarios[codUsuario - 1].id > 0) {
         return true;
+    } else{
+        return false;
+    }
+}
 
-    }else{
+bool seleciona_usuario(int codUsuario) {
+    if (usuario_cadastrado(codUsuario)) {
+        printf("\nBem Vindo(a), %s\n\n", listaUsuarios[codUsuario - 1].nome);
+        return true;
+    } else {
         return false;
     }
 }
 
 void atualiza_usuario() {
-    // função atualizar usuario
+    int codUsuario;
+    printf("Digite o ID do usuário a ser atualizado: ");
+    scanf("%d", &codUsuario);
+
+    if (!usuario_cadastrado(codUsuario)) {
+        return;
+    }
+
+    Usuario *usuario = &listaUsuarios[codUsuario - 1];
+
+    printf("Atualizando informações de %s\n", usuario->nome);
+    printf("Digite o novo nome (ou pressione Enter para manter): ");
+    scanf(" %[^\n]", usuario->nome);
+
+    printf("Digite o novo telefone: ");
+    scanf(" %[^\n]", usuario->telefone);
+
+    printf("Digite o novo endereço: ");
+    scanf(" %[^\n]", usuario->endereco);
+
+    printf("Informações atualizadas com sucesso!\n");
 }
 
 void remove_usuario() {
