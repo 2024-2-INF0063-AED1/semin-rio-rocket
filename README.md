@@ -54,19 +54,22 @@ Essas métricas permitirão uma avaliação abrangente da eficácia do gerenciad
 
 ### Fundamentos Teóricos
 O desenvolvimento do Biblioteca Manager foi fundamentado em conceitos de estruturas de dados, algoritmos de ordenação e técnicas de busca eficientes.
- **2.1 Estruturas de Dados**
-  -Listas encadeadas: Utilizadas para armazenar e manipular dinamicamente os registros de livros e usuários. Sua flexibilidade permite inserções e exclusões sem necessidade de realocação de memória.
-  -Árvores Binárias de Busca (BST): Implementadas para otimizar buscas por títulos e autores. As BSTs garantem complexidade média de O(logn) para operações de busca, inserção e remoção.
+
+**2.1 Estruturas de Dados**
+-Listas encadeadas: Utilizadas para armazenar e manipular dinamicamente os registros de livros e usuários. Sua flexibilidade permite inserções e exclusões sem necessidade de realocação de memória.
+-Árvores Binárias de Busca (BST): Implementadas para otimizar buscas por títulos e autores. As BSTs garantem complexidade média de O(logn) para operações de busca, inserção e remoção.
+
 **2.2 Algoritmos de Ordenação**
-  -Foram avaliados algoritmos clássicos como Bubble Sort, Quick Sort e Merge Sort, sendo o Quick Sort escolhido para ordenar livros por critérios como título ou autor, devido ao seu desempenho médio de O(nlogn).
+-Foram avaliados algoritmos clássicos como Bubble Sort, Quick Sort e Merge Sort, sendo o Quick Sort escolhido para ordenar livros por critérios como título ou autor, devido ao seu desempenho médio de O(nlogn).
+
 **2.3 Gerenciamento de Memória em C**
-  -A linguagem C exige controle explícito de memória, o que implica na utilização de funções como malloc e free para alocação e desalocação dinâmica, garantindo eficiência no uso de recursos.
+-A linguagem C exige controle explícito de memória, o que implica na utilização de funções como malloc e free para alocação e desalocação dinâmica, garantindo eficiência no uso de recursos.
 
 **2.4 Modelagem do Problema**
-  -Para atender aos requisitos de cadastro, empréstimo e organização do acervo, o sistema foi modelado com estruturas específicas:
+-Para atender aos requisitos de cadastro, empréstimo e organização do acervo, o sistema foi modelado com estruturas específicas:
 
-   -Livro: Representado por uma struct contendo campos como título, autor, categoria, status de empréstimo e ID único.
-   -Usuário: Struct que armazena informações pessoais e histórico de empréstimos.
+**Livro**: Representado por uma struct contendo campos como título, autor, categoria, status de empréstimo e ID único.
+**Usuário**: Struct que armazena informações pessoais e histórico de empréstimos.
 Esses fundamentos garantem a base teórica para o desenvolvimento de um sistema robusto e eficiente.
 
 ## Metodologia
