@@ -5,274 +5,285 @@
 #include "biblioteca.h"
 #include "usuario.h"
 
-int main()
+void menuUsuario(int idUsuario)
 {
-    SetConsoleOutputCP(CP_UTF8);
     int opcao;
-    inicializaUsuarios();
-    inicializarLivros();
-
     while (1)
     {
-        printf("----------------------------------------------------------\n");
-        printf("Seja Bem-vindo ao Gerenciador de Livros para Bibliotecas!\n");
-        printf("----------------------------------------------------------\n\n");
-        printf("Escolha uma opção:\n");
-        printf("----------------------------------------------------------\n");
-        printf("Digite 1 para acessar conta de usuário\n");
-        printf("Digite 2 para acessar conta de bibliotecário\n");
-        printf("Digite 3 para acessar a lista de usuários\n");
-        printf("Digite 0 para sair\n");
-        printf("----------------------------------------------------------\n");
+        printf("\n=== Menu do Usuário ===\n");
+        printf("1. Visualizar todos os livros\n");
+        printf("2. Buscar livros\n");
+        printf("3. Emprestar livro\n");
+        printf("4. Devolver livro\n");
+        printf("0. Voltar\n");
         printf("Escolha uma opção: ");
 
         if (scanf("%d", &opcao) != 1)
-        { // Verifica se a entrada é válida
+        {
             while (getchar() != '\n')
-                ; // Limpa o buffer do stdin
-            printf("Entrada inválida! Tente novamente.\n");
+                ;
+            printf("Entrada inválida!\n");
             continue;
         }
 
         switch (opcao)
         {
         case 1:
-            while (1)
+            listarLivros();
+            break;
+        case 2:
+        {
+            printf("\n=== Buscar Livros ===\n");
+            printf("1. Buscar por título\n");
+            printf("2. Buscar por autor\n");
+            printf("3. Buscar por categoria\n");
+            printf("0. Voltar\n");
+            printf("Escolha uma opção: ");
+
+            int opcaoBusca;
+            scanf("%d", &opcaoBusca);
+
+            char termo[100];
+            switch (opcaoBusca)
             {
-                printf("Digite 1 para criar uma conta de usuário\n");
-                printf("Digite 2 para acessar uma conta de usuário\n");
-                printf("Digite 0 para sair\n");
-                printf("\nEscolha uma opção: ");
+            case 1:
+                printf("Digite o título: ");
+                scanf(" %[^\n]", termo);
+                buscarLivroPorTitulo(termo);
+                break;
+            case 2:
+                printf("Digite o autor: ");
+                scanf(" %[^\n]", termo);
+                buscarLivroPorAutor(termo);
+                break;
+            case 3:
+                printf("Digite a categoria: ");
+                scanf(" %[^\n]", termo);
+                buscarLivroPorCategoria(termo);
+                break;
+            }
+            break;
+        }
+        case 3:
+        {
+            int idLivro;
+            printf("Digite o ID do livro para empréstimo: ");
+            scanf("%d", &idLivro);
+            emprestarLivro(idLivro, idUsuario);
+            break;
+        }
+        case 4:
+        {
+            int idLivro;
+            printf("Digite o ID do livro para devolução: ");
+            scanf("%d", &idLivro);
+            devolverLivro(idLivro, idUsuario);
+            break;
+        }
+        case 0:
+            return;
+        default:
+            printf("Opção inválida!\n");
+        }
+    }
+}
 
-                if (scanf("%d", &opcao) != 1)
-                {
-                    while (getchar() != '\n')
-                        ;
-                    printf("Entrada inválida! Tente novamente.\n");
-                    continue;
-                }
+int main()
+{
+    SetConsoleOutputCP(CP_UTF8);
+    int opcao, idUsuario = 0;
+    inicializaUsuarios();
+    inicializarLivros();
 
-                switch (opcao)
+    while (1)
+    {
+        printf("\n=== Sistema de Biblioteca ===\n");
+        printf("1. Acessar como Usuário\n");
+        printf("2. Acessar como Bibliotecário\n");
+        printf("0. Sair\n");
+        printf("Escolha uma opção: ");
+
+        if (scanf("%d", &opcao) != 1)
+        {
+            while (getchar() != '\n')
+                ;
+            printf("Entrada inválida!\n");
+            continue;
+        }
+
+        switch (opcao)
+        {
+        case 1:
+        {
+            int opcaoUsuario;
+            do
+            {
+                printf("\n=== Acesso de Usuário ===\n");
+                printf("1. Login\n");
+                printf("2. Cadastro\n");
+                printf("3. Exibir usuários\n");
+                printf("0. Voltar\n");
+                printf("Escolha uma opção: ");
+
+                scanf("%d", &opcaoUsuario);
+
+                switch (opcaoUsuario)
                 {
                 case 1:
+                {
+                    printf("Digite seu ID: ");
+                    scanf("%d", &idUsuario);
+                    if (seleciona_usuario(idUsuario))
+                    {
+                        menuUsuario(idUsuario);
+                    }
+                    break;
+                }
+                case 2:
                     cria_usuario();
                     break;
-                case 2:
+                case 3:
                     exibe_usuario();
                     break;
                 case 0:
-                    printf("Saindo...\n");
-                    return 0;
+                    break;
                 default:
-                    printf("Opção inválida! Tente novamente.\n");
+                    printf("Opção inválida!\n");
                 }
-            }
+            } while (opcaoUsuario != 0);
             break;
+        }
+        case 2:{
+            int opcaoBibliotecario;
 
-        case 2:
-            while (1)
+            printf("\n=== Acesso de Bibliotecário ===\n");
+            printf("Digite seu ID: ");
+            scanf("%d", &idUsuario);
+
+            if (usuario_cadastrado(idUsuario))
             {
-                printf("Acessando conta de bibliotecário...\n\n");
-                printf("Escolha uma opção:\n");
-                printf("Digite 1 para adicionar um livro\n");
-                printf("Digite 2 para remover um livro\n");
-                printf("Digite 3 para listar todos os livros\n");
-                printf("Digite 4 para buscar um livro por ID\n");
-                printf("Digite 5 para buscar um livro por título\n");
-                printf("Digite 6 para buscar um livro por autor\n");
-                printf("Digite 7 para buscar um livro por categoria\n");
-                printf("Digite 8 para buscar um livro por ano\n");
-                printf("Digite 9 para buscar um livro por status\n");
-                printf("Digite 0 para sair\n");
-                printf("\nEscolha uma opção: ");
+                do
+                {
+                    printf("\n=== Menu do Bibliotecário ===\n");
+                    printf("1. Visualizar todos os livros\n");
+                    printf("2. Buscar livros\n");
+                    printf("3. Adicionar livro\n");
+                    printf("4. Atualizar livro\n");
+                    printf("5. Remover livro\n");
+                    printf("0. Voltar\n");
+                    printf("Escolha uma opção: ");
 
-                if (scanf("%d", &opcao) != 1)
-                {
-                    while (getchar() != '\n')
-                        ;
-                    printf("Entrada inválida! Tente novamente.\n");
-                    continue;
-                }
+                    scanf("%d", &opcaoBibliotecario);
 
-                switch (opcao)
-                {
-                case 1:
-                {
-                    int id, ano, status;
-                    char titulo[100], autor[100], categoria[100];
-                    printf("Digite o ID do livro: ");
-                    while (scanf("%d", &id) != 1 || id <= 0)
+                    switch (opcaoBibliotecario)
                     {
-                        while (getchar() != '\n')
-                            ;
-                        printf("ID inválido. Digite um número positivo: ");
-                    }
-                    while (getchar() != '\n')
-                        ;
-                    printf("Digite o título do livro: ");
-                    scanf(" %[^\n]", titulo);
-                    printf("Digite o autor do livro: ");
-                    scanf(" %[^\n]", autor);
-                    printf("Digite a categoria do livro: ");
-                    scanf(" %[^\n]", categoria);
-                    printf("Digite o ano do livro: ");
-                    while (scanf("%d", &ano) != 1 || ano <= 0)
-                    {
-                        while (getchar() != '\n')
-                            ;
-                        printf("Ano inválido. Digite um número positivo: ");
-                    }
-                    printf("Digite o status do livro (1 para disponível, 0 para emprestado): ");
-                    while (scanf("%d", &status) != 1 || (status != 0 && status != 1))
-                    {
-                        while (getchar() != '\n')
-                            ;
-                        printf("Status inválido. Digite 0 ou 1: ");
-                    }
-                    adicionarLivro(id, titulo, autor, categoria, ano, status);
-                    break;
-                }
-                case 2:
-                {
-                    int id;
-                    printf("Digite o ID do livro a ser removido: ");
-                    while (scanf("%d", &id) != 1 || id <= 0)
-                    {
-                        while (getchar() != '\n')
-                            ;
-                        printf("ID inválido. Digite um número positivo: ");
-                    }
-                    removerLivro(id);
-                    break;
-                }
-
-                case 3:
-                {
-                    if (listaLivros == NULL)
-                    {
-                        printf("A lista de livros está vazia.\n");
-                    }
-                    else
-                    {
+                    case 1:
                         listarLivros();
-                    }
-                    break;
-                }
-                case 4:
-                {
-                    int id;
-                    printf("Digite o ID do livro a ser buscado: ");
-                    while (scanf("%d", &id) != 1 || id <= 0)
+                        break;
+                    case 2:
                     {
-                        while (getchar() != '\n')
-                            ;
-                        printf("ID inválido. Digite um número positivo: ");
+                        printf("\n=== Buscar Livros ===\n");
+                        printf("1. Buscar por título\n");
+                        printf("2. Buscar por autor\n");
+                        printf("3. Buscar por categoria\n");
+                        printf("4. Buscar por ano\n");
+                        printf("5. Buscar por status\n");
+                        printf("0. Voltar\n");
+                        printf("Escolha uma opção: ");
+
+                        int opcaoBusca;
+                        scanf("%d", &opcaoBusca);
+
+                        char termo[100];
+                        int ano, status;
+                        switch (opcaoBusca)
+                        {
+                        case 1:
+                            printf("Digite o título: ");
+                            scanf(" %[^\n]", termo);
+                            buscarLivroPorTitulo(termo);
+                            break;
+                        case 2:
+                            printf("Digite o autor: ");
+                            scanf(" %[^\n]", termo);
+                            buscarLivroPorAutor(termo);
+                            break;
+                        case 3:
+                            printf("Digite a categoria: ");
+                            scanf(" %[^\n]", termo);
+                            buscarLivroPorCategoria(termo);
+                            break;
+                        case 4:
+                            printf("Digite o ano: ");
+                            scanf("%d", &ano);
+                            buscarLivroPorAno(ano);
+                            break;
+                        case 5:
+                            printf("Digite o status (0 para indisponível, 1 para disponível): ");
+                            scanf("%d", &status);
+                            buscarLivroPorStatus(status);
+                            break;
+                        }
+                        break;
                     }
-                    buscarLivroPorId(id);
-                    break;
-                }
-                case 5:
-                {
-                    char titulo[100];
-                    printf("Digite o título do livro a ser buscado: ");
-                    while (getchar() != '\n')
-                        ;
-                    scanf(" %[^\n]", titulo);
-                    buscarLivroPorTitulo(titulo);
-                    break;
-                }
-                case 6:
-                {
-                    char autor[100];
-                    printf("Digite o autor do livro a ser buscado: ");
-                    while (getchar() != '\n')
-                        ;
-                    scanf(" %[^\n]", autor);
-                    buscarLivroPorAutor(autor);
-                    break;
-                }
-                case 7:
-                {
-                    char categoria[100];
-                    printf("Digite a categoria do livro a ser buscado: ");
-                    while (getchar() != '\n')
-                        ;
-                    scanf(" %[^\n]", categoria);
-                    buscarLivroPorCategoria(categoria);
-                    break;
-                }
-                case 8:
-                {
-                    int ano;
-                    printf("Digite o ano do livro a ser buscado: ");
-                    while (scanf("%d", &ano) != 1 || ano <= 0)
+                    case 3:
                     {
-                        while (getchar() != '\n')
-                            ;
-                        printf("Ano inválido. Digite um número positivo: ");
+                        int id, ano, status;
+                        char titulo[100], autor[100], categoria[100];
+                        printf("Digite o ID do livro: ");
+                        scanf("%d", &id);
+                        printf("Digite o título do livro: ");
+                        scanf(" %[^\n]", titulo);
+                        printf("Digite o autor do livro: ");
+                        scanf(" %[^\n]", autor);
+                        printf("Digite a categoria do livro: ");
+                        scanf(" %[^\n]", categoria);
+                        printf("Digite o ano do livro: ");
+                        scanf("%d", &ano);
+                        printf("Digite o status do livro (0 para indisponível, 1 para disponível): ");
+                        scanf("%d", &status);
+                        adicionarLivro(id, titulo, autor, categoria, ano, status);
+                        break;
                     }
-                    buscarLivroPorAno(ano);
-                    break;
-                }
-                case 9:
-                {
-                    int status;
-                    printf("Digite o status do livro a ser buscado (1 para disponível, 0 para emprestado): ");
-                    while (scanf("%d", &status) != 1 || (status != 0 && status != 1))
+                    case 4:
                     {
-                        while (getchar() != '\n')
-                            ;
-                        printf("Status inválido. Digite 0 ou 1: ");
+                        int id, ano, status;
+                        char titulo[100], autor[100], categoria[100];
+                        printf("Digite o ID do livro: ");
+                        scanf("%d", &id);
+                        printf("Digite o novo título do livro: ");
+                        scanf(" %[^\n]", titulo);
+                        printf("Digite o novo autor do livro: ");
+                        scanf(" %[^\n]", autor);
+                        printf("Digite a nova categoria do livro: ");
+                        scanf(" %[^\n]", categoria);
+                        printf("Digite o novo ano do livro: ");
+                        scanf("%d", &ano);
+                        printf("Digite o novo status do livro (0 para indisponível, 1 para disponível): ");
+                        scanf("%d", &status);
+                        atualizarLivro(id, titulo, autor, categoria, ano, status);
+                        break;
                     }
-                    buscarLivroPorStatus(status);
-                    break;
-                }
-                case 0:
-                    printf("Saindo...\n");
-                    return 0;
-                default:
-                    printf("Opção inválida! Tente novamente.\n");
-                }
+                    case 5: {
+                        int id;
+                        printf("Digite o ID do livro para remoção: ");
+                        scanf("%d", &id);
+                        removerLivro(id);
+                        break;
+                    }
+                    case 0:
+                        break;
+                    }
+                } while (opcaoBibliotecario != 0);
             }
             break;
-
-        case 3:
-            exibe_usuario();
-
-            printf("Deseja selecionar um usuário?\n");
-            printf("0 - Não\n1 - Sim\n");
-
-            if (scanf("%d", &opcao) != 1) {
-                while (getchar() != '\n');
-                printf("Entrada inválida! Tente novamente.\n");
-                continue;
-            }
-            
-            if (opcao == 1) {
-                printf("Digite o código do usuário: ");
-
-                if (scanf("%d", &opcao) != 1) {
-                    while (getchar() != '\n');
-                    printf("Entrada inválida! Tente novamente.\n");
-                    continue;
-                }
-
-                if (usuario_cadastrado(opcao)) {
-                    seleciona_usuario(opcao);
-                } else {
-                    printf("Usuário inválido!\n\n");
-                }
-            }
-            break;
-
+        }
         case 0:
             printf("Saindo...\n");
             return 0;
-
         default:
-            printf("Opção inválida! Tente novamente.\n");
+            printf("Opção inválida!\n");
         }
     }
-
     return 0;
 }

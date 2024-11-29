@@ -7,9 +7,9 @@ Usuario listaUsuarios[MAX_USUARIOS];
 
 void inicializaUsuarios() {
     Usuario usuariosIniciais[] = {
-        {1, "Julia Oliveira", "1234567891", "Rua GitHub"},
-        {2, "Diogo Quintão", "1234567891", "Avenida GitLab"},
-        {3, "Lucas Pereira", "1234567891", "Praça Git"}
+        {1, "Julia Oliveira", "Rua GitHub", "1234567891"},
+        {2, "Diogo Quintão", "Avenida GitLab", "1234567891"},
+        {3, "Lucas Pereira", "Praça Git", "1234567891"}
     };
     
     int numUsuariosIniciais = sizeof(usuariosIniciais) / sizeof(usuariosIniciais[0]);
@@ -19,12 +19,31 @@ void inicializaUsuarios() {
 }
 
 bool cria_usuario() {
-    int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
-    if (numUsuarios >= MAX_USUARIOS) {
-        return false;
-    } else {
-        return true;
+    int numUsuarios = 0;
+    while (numUsuarios < MAX_USUARIOS && listaUsuarios[numUsuarios].id != 0) {
+        numUsuarios++;
     }
+    
+    if (numUsuarios >= MAX_USUARIOS) {
+        printf("Limite de usuários atingido!\n");
+        return false;
+    }
+
+    Usuario novoUsuario;
+    printf("Digite o ID do novo usuário: ");
+    scanf("%d", &novoUsuario.id);
+    
+    printf("Digite o nome: ");
+    scanf(" %[^\n]", novoUsuario.nome);
+    
+    printf("Digite o telefone: ");
+    scanf(" %[^\n]", novoUsuario.telefone);
+    
+    printf("Digite o endereço: ");
+    scanf(" %[^\n]", novoUsuario.endereco);
+    
+    listaUsuarios[numUsuarios] = novoUsuario;
+    return true;
 }
 
 void exibe_usuario() {
@@ -46,13 +65,11 @@ void exibe_usuario() {
     printf("\n");
 }
 
-bool usuario_cadastrado(int codUsuario){
-    int numUsuarios = sizeof(listaUsuarios) / sizeof(Usuario);
-    if (codUsuario > 0 && codUsuario < numUsuarios && listaUsuarios[codUsuario - 1].id > 0) {
-        return true;
-    } else{
+bool usuario_cadastrado(int codUsuario) {
+    if (codUsuario <= 0 || codUsuario > MAX_USUARIOS) {
         return false;
     }
+    return listaUsuarios[codUsuario - 1].id > 0;
 }
 
 bool seleciona_usuario(int codUsuario) {
@@ -89,5 +106,17 @@ void atualiza_usuario() {
 }
 
 void remove_usuario() {
-    // função remover usuario
+    int codUsuario;
+
+    printf("Digite o ID do usuário a ser removido: ");
+    scanf("%d", &codUsuario);
+
+    if (!usuario_cadastrado(codUsuario)) {
+        return;
+    }
+
+    Usuario *usuario = &listaUsuarios[codUsuario - 1];
+    printf("Removendo usuário %s\n", usuario->nome);
+    usuario->id = 0;
+    printf("Usuário removido com sucesso!\n");
 }

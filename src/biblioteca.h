@@ -1,6 +1,6 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
-
+#include <stdbool.h>
 typedef enum {
     INDISPONIVEL = 0,
     DISPONIVEL = 1
@@ -12,6 +12,7 @@ typedef struct Livro {
     char categoria[100];
     int ano;
     StatusLivro status;
+    int usuarioId;
     struct Livro *proximo;
 } Livro;
 
@@ -23,12 +24,15 @@ void adicionarLivro(int id, char* titulo, char* autor, char* categoria, int ano,
 void atualizarLivro(int id, char* titulo, char* autor, char* categoria, int ano, int status);
 void removerLivro(int id);
 void listarLivros();
-void buscarLivroPorId(int id);
+Livro* buscarLivroPorId(int id);
 void buscarLivroPorTitulo(char* titulo);
 void buscarLivroPorAutor(char* autor);
 void buscarLivroPorCategoria(char* categoria);
 void buscarLivroPorAno(int ano);
 void buscarLivroPorStatus(int status);
-
+bool emprestarLivro(int idLivro, int idUsuario);
+bool devolverLivro(int idLivro, int idUsuario);
+bool verificarEmprestimo(int idLivro, int idUsuario);
+void listarLivrosUsuario(int idUsuario);
 
 #endif

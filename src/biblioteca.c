@@ -212,25 +212,17 @@ void listarLivros()
     }
 }
 
-void buscarLivroPorId(int id)
-{
+Livro* buscarLivroPorId(int id) {
     Livro *atual = listaLivros;
-    while (atual != NULL)
-    {
-        if (atual->id == id)
-        {
-            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d, Status: %s\n",
-                atual->id,
-                atual->titulo,
-                atual->autor,
-                atual->categoria, 
-                atual->ano,
-                obterStatusTexto(atual->status));
-            return;
+    
+    while (atual != NULL) {
+        if (atual->id == id) {
+            return atual;
         }
         atual = atual->proximo;
     }
-    printf("Livro não encontrado!\n");
+    
+    return NULL;
 }
 
 void buscarLivroPorTitulo(char *titulo)
@@ -490,5 +482,72 @@ void buscarLivroPorStatus(int status)
     else
     {
         printf("Nenhum livro encontrado com status %s!\n", obterStatusTexto(status));
+    }
+}
+
+bool emprestarLivro(int idLivro, int idUsuario) {
+    Livro* livro = buscarLivroPorId(idLivro);
+    if (livro == NULL) {
+        printf("Livro não encontrado!\n");
+        return false;
+    }
+    
+    if (livro->status == INDISPONIVEL) {
+        printf("Livro já está emprestado!\n");
+        return false;
+    }
+    
+    // Registra o empréstimo
+    livro->status = INDISPONIVEL;
+    livro->usuarioId = idUsuario;
+    printf("Livro emprestado com sucesso para o usuário %d!\n", idUsuario);
+    return true;
+}
+
+bool devolverLivro(int idLivro, int idUsuario) {
+    Livro* livro = buscarLivroPorId(idLivro);
+    if (livro == NULL) {
+        printf("Livro não encontrado!\n");
+        return false;
+    }
+    
+    if (livro->status == DISPONIVEL) {
+        printf("Livro já está disponível!\n");
+        return false;
+    }
+    
+    if (!verificarEmprestimo(idLivro, idUsuario)) {
+        printf("Este livro está emprestado para outro usuário!\n");
+        return false;
+    }
+    
+    livro->status = DISPONIVEL;
+    livro->usuarioId = 0;
+    printf("Livro devolvido com sucesso pelo usuário %d!\n", idUsuario);
+    return true;
+}
+
+bool verificarEmprestimo(int idLivro, int idUsuario) {
+    Livro* livro = buscarLivroPorId(idLivro);
+    if (livro == NULL) return false;
+    return (livro->status == INDISPONIVEL && livro->usuarioId == idUsuario);
+}
+
+void listarLivrosUsuario(int idUsuario) {
+    Livro *atual = listaLivros;
+    bool encontrouLivros = false;
+    
+    printf("\nLivros emprestados para o usuário %d:\n", idUsuario);
+    while (atual != NULL) {
+        if (atual->status == INDISPONIVEL && atual->usuarioId == idUsuario) {
+            printf("ID: %d, Título: %s, Autor: %s, Categoria: %s, Ano: %d\n",
+                atual->id, atual->titulo, atual->autor, atual->categoria, atual->ano);
+            encontrouLivros = true;
+        }
+        atual = atual->proximo;
+    }
+    
+    if (!encontrouLivros) {
+        printf("Nenhum livro emprestado para este usuário.\n");
     }
 }
