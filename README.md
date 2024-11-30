@@ -52,6 +52,26 @@ Os resultados serão medidos utilizando métricas como:
 - Uso da Memória: Avaliando a eficiência do uso da memória pelas estruturas implementadas.
 Essas métricas permitirão uma avaliação abrangente da eficácia do gerenciador de livros proposto sob a perspectiva das estruturas de dados.
 
+### Fundamentos Teóricos
+O desenvolvimento do Biblioteca Manager foi fundamentado em conceitos de estruturas de dados, algoritmos de ordenação e técnicas de busca eficientes.
+
+**2.1 Estruturas de Dados**
+-Listas encadeadas: Utilizadas para armazenar e manipular dinamicamente os registros de livros e usuários. Sua flexibilidade permite inserções e exclusões sem necessidade de realocação de memória.
+-Árvores Binárias de Busca (BST): Implementadas para otimizar buscas por títulos e autores. As BSTs garantem complexidade média de O(logn) para operações de busca, inserção e remoção.
+
+**2.2 Algoritmos de Ordenação**
+-Foram avaliados algoritmos clássicos como Bubble Sort, Quick Sort e Merge Sort, sendo o Quick Sort escolhido para ordenar livros por critérios como título ou autor, devido ao seu desempenho médio de O(nlogn).
+
+**2.3 Gerenciamento de Memória em C**
+-A linguagem C exige controle explícito de memória, o que implica na utilização de funções como malloc e free para alocação e desalocação dinâmica, garantindo eficiência no uso de recursos.
+
+**2.4 Modelagem do Problema**
+-Para atender aos requisitos de cadastro, empréstimo e organização do acervo, o sistema foi modelado com estruturas específicas:
+
+**Livro**: Representado por uma struct contendo campos como título, autor, categoria, status de empréstimo e ID único.
+**Usuário**: Struct que armazena informações pessoais e histórico de empréstimos.
+Esses fundamentos garantem a base teórica para o desenvolvimento de um sistema robusto e eficiente.
+
 ## Metodologia
 
 | **Etapa**                         | **Descrição**                                                                                                           |
@@ -77,6 +97,36 @@ Essas métricas permitirão uma avaliação abrangente da eficácia do gerenciad
 |                                      |   - Cadastro, consulta, empréstimo e devolução de livros;                                                              |
 |                                      |   - Busca de livros por critérios variados (título e autor).                                                           |
 
+
+---
+
+### **4. Resultados e Conclusões**
+
+#### **Resultados**
+O **Biblioteca Manager** alcançou os objetivos propostos, entregando um sistema funcional para gerenciamento de acervos bibliográficos. Os principais resultados obtidos incluem:
+
+| **Funcionalidade**              | **Resultado Obtido**                                                                                          |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Cadastro de Livros**          | Permitiu a inclusão de livros com dados como título, autor, categoria e status, organizados em uma lista eficiente. |
+| **Busca de Livros**             | Implementou uma busca eficiente utilizando árvores binárias para localizar livros por título ou autor.       |
+| **Empréstimos e Devoluções**    | Gerenciou com sucesso o status de empréstimos, alterando entre "disponível" e "indisponível" conforme necessário. |
+| **Listagem por Categoria**      | Exibiu listas de livros categorizados, melhorando a organização e a acessibilidade do acervo.                |
+| **Testes de Performance**       | Validou a eficiência do sistema em termos de busca e ordenação, com tempos satisfatórios para operações em diferentes volumes de dados. |
+
+#### **Conclusões**
+Durante o desenvolvimento, diversas lições foram aprendidas, tanto no âmbito técnico quanto na gestão do projeto. Destacamos as principais reflexões e aprendizados:
+
+| **Aspecto**                 | **Lições Aprendidas**                                                                                         |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Planejamento e Organização** | A importância de um planejamento inicial bem estruturado, incluindo o levantamento de requisitos e a definição clara de funcionalidades.   |
+| **Estruturas de Dados**       | O uso de listas encadeadas e árvores binárias foi essencial para otimizar a performance do sistema, consolidando o entendimento prático dessas estruturas. |
+| **Algoritmos de Ordenação**   | A escolha de algoritmos adequados, como o Quick Sort, demonstrou a relevância de analisar o custo-benefício de cada método no contexto do problema. |
+| **Gerenciamento de Memória**  | Trabalhar com alocação e desalocação dinâmica em C reforçou a importância de práticas responsáveis para evitar vazamentos de memória.         |
+| **Colaboração em Equipe**     | A integração entre os membros foi crucial para dividir tarefas, resolver problemas complexos e unificar o trabalho final de maneira coesa.     |
+| **Testes e Validação**        | A execução de testes em cenários reais evidenciou a necessidade de simular situações práticas para garantir a robustez do sistema.             |
+| **Desafios e Superação**      | Lidamos com dificuldades, como bugs inesperados e escolhas subótimas de estrutura, mas o aprendizado adquirido com a resolução desses problemas foi enriquecedor. |
+
+No geral, o **Biblioteca Manager** não apenas cumpriu os objetivos iniciais, mas também proporcionou aos desenvolvedores uma oportunidade única de aplicar e consolidar conhecimentos teóricos em um projeto prático. A experiência reforçou habilidades técnicas e colaborativas, preparando o grupo para desafios futuros no campo da Engenharia de Computação.
 
 ## Referências
 

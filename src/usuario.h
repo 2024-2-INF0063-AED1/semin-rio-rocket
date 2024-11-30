@@ -21,6 +21,6 @@ void exibe_usuario();
 void atualiza_usuario();
 void remove_usuario();
 bool usuario_cadastrado(int codUsuario);
-
+bool seleciona_usuario(int codUsuario);
 
 #endif 
