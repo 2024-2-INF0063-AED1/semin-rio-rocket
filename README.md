@@ -99,20 +99,7 @@ Esses fundamentos garantem a base teórica para o desenvolvimento de um sistema 
 
 
 ---
-## Fundamentos Teóricos
-O desenvolvimento de sistemas para gerenciamento de bibliotecas tem se mostrado cada vez mais relevante diante do crescimento dos acervos bibliográficos e da necessidade de organizar e facilitar o acesso à informação. Nesse contexto, o Biblioteca Manager busca oferecer uma solução tecnológica que promova eficiência, acessibilidade e modernização no controle de acervos. A fundamentação teórica deste projeto é alicerçada em três principais pilares: investimentos em modernização, otimização técnica e práticas consolidadas em sistemas de bibliotecas.
 
-### Modernização e Acessibilidade em Bibliotecas
-Os investimentos recentes na Biblioteca Nacional, conforme destacado pela Agência Brasil, evidenciam a importância de iniciativas voltadas à modernização e digitalização de acervos. Recursos aplicados para ampliar o acesso ao conteúdo bibliográfico e preservar obras históricas reforçam a necessidade de sistemas robustos que combinem acessibilidade com organização eficiente. Essa perspectiva inspira o Biblioteca Manager, especialmente em funcionalidades relacionadas à digitalização e ao acesso remoto.
-
-### Algoritmos e Otimização Técnica
-A gestão eficiente de dados é um dos principais desafios de sistemas de bibliotecas, e o artigo do FreeCodeCamp sobre algoritmos de ordenação fornece um embasamento técnico essencial. Algoritmos como Quick Sort e Merge Sort possibilitam a organização otimizada de grandes volumes de dados, permitindo que o Biblioteca Manager ofereça buscas rápidas e eficazes por livros, usuários e funcionários. Essa abordagem técnica garante maior eficiência no processamento das informações e melhora a experiência do usuário.
-
-### Funcionalidades Práticas de Sistemas de Biblioteca
-O trabalho acadêmico de Giovanne Marangoni Martins apresenta uma visão prática sobre o desenvolvimento de sistemas de gerenciamento de bibliotecas. Funcionalidades como cadastro de livros, controle de empréstimos e devoluções, além da organização de acervos, são pilares fundamentais para sistemas dessa natureza. Esses elementos norteiam o desenvolvimento do Biblioteca Manager, garantindo que o sistema atenda às necessidades operacionais básicas de bibliotecas modernas.
-
-### Integração Teórica e Prática
-A união das perspectivas apresentadas permite uma abordagem abrangente para o desenvolvimento do Biblioteca Manager. A modernização proposta pelos investimentos na Biblioteca Nacional inspira o foco na acessibilidade e organização. O uso de algoritmos eficazes proporciona eficiência técnica, enquanto a pesquisa acadêmica oferece diretrizes práticas para implementação. Essa integração teórica fundamenta o projeto, assegurando uma solução tecnológica completa e alinhada às necessidades contemporâneas das bibliotecas.
 ### **4. Resultados e Conclusões**
 
 #### **Resultados**
