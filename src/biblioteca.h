@@ -29,7 +29,7 @@ void buscarLivroPorTitulo(char* titulo);
 void buscarLivroPorAutor(char* autor);
 void buscarLivroPorCategoria(char* categoria);
 void buscarLivroPorAno(int ano);
-void buscarLivroPorStatus(int status);
+void buscarLivroPorStatus(StatusLivro status);
 bool emprestarLivro(int idLivro, int idUsuario);
 bool devolverLivro(int idLivro, int idUsuario);
 bool verificarEmprestimo(int idLivro, int idUsuario);
