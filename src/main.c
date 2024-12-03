@@ -5,6 +5,8 @@
 #include "biblioteca.h"
 #include "usuario.h"
 
+#define SENHA_PADRAO "admin123"
+
 void menuUsuario(int idUsuario)
 {
     int opcao;
@@ -156,12 +158,12 @@ int main()
         case 2:
         {
             int opcaoBibliotecario;
-
+            char senha[10];
             printf("\n=== Acesso de Bibliotecário ===\n");
-            printf("Digite seu ID: ");
-            scanf("%d", &idUsuario);
+            printf("Digite a senha de acesso: ");
+            scanf("%9s", &senha);
 
-            if (usuario_cadastrado(idUsuario))
+            if (strcmp(senha, SENHA_PADRAO) == 0)
             {
                 do
                 {
@@ -284,6 +286,10 @@ int main()
                         break;
                     }
                 } while (opcaoBibliotecario != 0);
+            }
+            else
+            {
+                printf("Senha inválida!\n");
             }
             break;
         }

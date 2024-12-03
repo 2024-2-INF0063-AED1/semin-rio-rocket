@@ -1,8 +1,9 @@
-#include "biblioteca.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>  
 #include <string.h>
-#include <usuario.h>
+#include <stdbool.h>
+#include "biblioteca.h"
+#include "usuario.h"
 
 // Ponteiro para o início da lista de livros
 Livro *listaLivros = NULL;
