@@ -161,7 +161,7 @@ int main()
             char senha[10];
             printf("\n=== Acesso de Bibliotecário ===\n");
             printf("Digite a senha de acesso: ");
-            scanf("%9s", &senha);
+            scanf("%9s", senha);
 
             if (strcmp(senha, SENHA_PADRAO) == 0)
             {
