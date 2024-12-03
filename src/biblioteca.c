@@ -8,8 +8,10 @@
 // Ponteiro para o início da lista de livros
 Livro *listaLivros = NULL;
 
+// Função para inicializar a lista de livros com alguns dados iniciais
 void inicializarLivros()
 {
+    // Adiciona alguns livros iniciais
     adicionarLivro(1, "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", 1954, 1);
     adicionarLivro(2, "Dom Casmurro", "Machado de Assis", "Romance", 1899, 1);
     adicionarLivro(3, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Infantil", 1943, 1);
@@ -114,11 +116,13 @@ void inicializarLivros()
     adicionarLivro(102, "Macunaíma", "Mário de Andrade", "Romance", 1928, 1);
 }
 
+// Função para obter o texto do status do livro
 const char *obterStatusTexto(StatusLivro status)
 {
     return status == DISPONIVEL ? "Disponível" : "Indisponível";
 }
 
+// Função para adicionar um novo livro à lista
 void adicionarLivro(int id, char *titulo, char *autor, char *categoria, int ano, int status)
 {
     // Criar novo livro
@@ -148,6 +152,7 @@ void adicionarLivro(int id, char *titulo, char *autor, char *categoria, int ano,
     printf("Livro inserido com sucesso!\n");
 }
 
+// Função para atualizar um livro existente
 void atualizarLivro(int id, char *titulo, char *autor, char *categoria, int ano, int status)
 {
     Livro *atual = listaLivros;
@@ -168,6 +173,7 @@ void atualizarLivro(int id, char *titulo, char *autor, char *categoria, int ano,
     printf("Livro não encontrado!\n");
 }
 
+// Função para remover um livro da lista
 void removerLivro(int id)
 {
     Livro *atual = listaLivros;
@@ -198,6 +204,7 @@ void removerLivro(int id)
     printf("Livro removido com sucesso!\n");
 }
 
+// Função para listar todos os livros
 void listarLivros()
 {
     Livro *atual = listaLivros;
@@ -214,6 +221,7 @@ void listarLivros()
     }
 }
 
+// Função para buscar um livro pelo ID
 Livro *buscarLivroPorId(int id)
 {
     Livro *atual = listaLivros;
@@ -230,6 +238,7 @@ Livro *buscarLivroPorId(int id)
     return NULL;
 }
 
+// Função para buscar um livro pelo título
 void buscarLivroPorTitulo(char *titulo)
 {
     const int MAX_LIVROS = 100;
@@ -283,6 +292,7 @@ void buscarLivroPorTitulo(char *titulo)
     }
 }
 
+// Função para buscar um livro pelo autor
 void buscarLivroPorAutor(char *autor)
 {
     const int MAX_LIVROS = 100;
@@ -335,6 +345,7 @@ void buscarLivroPorAutor(char *autor)
     }
 }
 
+// Função para buscar um livro pela categoria
 void buscarLivroPorCategoria(char *categoria)
 {
     const int MAX_LIVROS = 100;
@@ -387,6 +398,7 @@ void buscarLivroPorCategoria(char *categoria)
     }
 }
 
+// Função para buscar um livro pelo ano
 void buscarLivroPorAno(int ano)
 {
     const int MAX_LIVROS = 100;
@@ -439,6 +451,7 @@ void buscarLivroPorAno(int ano)
     }
 }
 
+// Função para buscar um livro pelo status
 void buscarLivroPorStatus(StatusLivro status)
 {
     const int MAX_LIVROS = 100;
@@ -491,6 +504,7 @@ void buscarLivroPorStatus(StatusLivro status)
     }
 }
 
+// Função para emprestar um livro 
 bool emprestarLivro(int idLivro, int idUsuario)
 {
     Livro *livro = buscarLivroPorId(idLivro);
@@ -513,6 +527,7 @@ bool emprestarLivro(int idLivro, int idUsuario)
     return true;
 }
 
+// Função para devolver um livro
 bool devolverLivro(int idLivro, int idUsuario)
 {
     Livro *livro = buscarLivroPorId(idLivro);
@@ -540,6 +555,7 @@ bool devolverLivro(int idLivro, int idUsuario)
     return true;
 }
 
+// Função para verificar se um livro está emprestado para um usuário
 bool verificarEmprestimo(int idLivro, int idUsuario)
 {
     Livro *livro = buscarLivroPorId(idLivro);
@@ -548,6 +564,7 @@ bool verificarEmprestimo(int idLivro, int idUsuario)
     return (livro->status == INDISPONIVEL && livro->usuarioId == idUsuario);
 }
 
+// Função para listar os livros emprestados para um usuário
 void listarLivrosUsuario(int idUsuario)
 {
     Livro *atual = listaLivros;

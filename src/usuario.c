@@ -3,32 +3,41 @@
 #include <stdbool.h>
 #include "usuario.h"
 
+// Declaração do array de usuários
 Usuario listaUsuarios[MAX_USUARIOS];
 
+// Função para inicializar a lista de usuários com alguns dados iniciais
 void inicializaUsuarios() {
+    // Dados iniciais dos usuários
     Usuario usuariosIniciais[] = {
         {1, "Julia Oliveira", "Rua GitHub", "1234567891"},
         {2, "Diogo Quintão", "Avenida GitLab", "1234567891"},
         {3, "Lucas Pereira", "Praça Git", "1234567891"}
     };
     
+    // Calcula o número de usuários iniciais
     int numUsuariosIniciais = sizeof(usuariosIniciais) / sizeof(usuariosIniciais[0]);
+    // Copia os dados iniciais para a lista de usuários
     for (int i = 0; i < numUsuariosIniciais && i < MAX_USUARIOS; i++) {
         listaUsuarios[i] = usuariosIniciais[i];
     }
 }
 
+// Função para criar um novo usuário
 bool cria_usuario() {
     int numUsuarios = 0;
+    // Conta o número de usuários existentes
     while (numUsuarios < MAX_USUARIOS && listaUsuarios[numUsuarios].id != 0) {
         numUsuarios++;
     }
     
+    // Verifica se o limite de usuários foi atingido
     if (numUsuarios >= MAX_USUARIOS) {
         printf("Limite de usuários atingido!\n");
         return false;
     }
 
+    // Cria um novo usuário
     Usuario novoUsuario;
     printf("Digite o ID do novo usuário: ");
     scanf("%d", &novoUsuario.id);
@@ -42,17 +51,21 @@ bool cria_usuario() {
     printf("Digite o endereço: ");
     scanf(" %[^\n]", novoUsuario.endereco);
     
+    // Adiciona o novo usuário à lista
     listaUsuarios[numUsuarios] = novoUsuario;
     return true;
 }
 
+// Função para exibir todos os usuários
 void exibe_usuario() {
     int numUsuarios = 0;
+    // Conta o número de usuários existentes
     while (numUsuarios < MAX_USUARIOS && listaUsuarios[numUsuarios].id != 0) {
         numUsuarios++;
     }
     printf("Número de usuários: %d\n", numUsuarios);
 
+    // Exibe os dados de cada usuário
     for (int i = 0; i < numUsuarios; i++) {
         if (listaUsuarios[i].id > 0) {
             printf("%d - ", listaUsuarios[i].id);
@@ -65,6 +78,7 @@ void exibe_usuario() {
     printf("\n");
 }
 
+// Função para verificar se um usuário está cadastrado
 bool usuario_cadastrado(int codUsuario) {
     if (codUsuario <= 0 || codUsuario > MAX_USUARIOS) {
         return false;
@@ -72,6 +86,7 @@ bool usuario_cadastrado(int codUsuario) {
     return listaUsuarios[codUsuario - 1].id > 0;
 }
 
+// Função para selecionar um usuário pelo ID
 bool seleciona_usuario(int codUsuario) {
     if (usuario_cadastrado(codUsuario)) {
         printf("\nBem Vindo(a), %s\n\n", listaUsuarios[codUsuario - 1].nome);
@@ -81,6 +96,7 @@ bool seleciona_usuario(int codUsuario) {
     }
 }
 
+// Função para atualizar os dados de um usuário
 void atualiza_usuario() {
     int codUsuario;
     printf("Digite o ID do usuário a ser atualizado: ");
@@ -105,6 +121,7 @@ void atualiza_usuario() {
     printf("Informações atualizadas com sucesso!\n");
 }
 
+// Função para remover um usuário
 void remove_usuario() {
     int codUsuario;
 
