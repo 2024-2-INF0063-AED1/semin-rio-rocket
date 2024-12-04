@@ -6,10 +6,10 @@
 - **Lucas Pereira Brito** (202201649)
   
 ## Resumo
-Este relatório apresenta o desenvolvimento de um sistema de gerenciamento de livros para bibliotecas, utilizando a linguagem de programação C. O projeto visa facilitar consultas e organização do acervo, atendendo a uma necessidade crescente de eficiência, especialmente em bibliotecas públicas, como a Biblioteca Nacional, que recentemente recebeu um investimento significativo para modernização. Técnicas como listas e árvores binárias são aplicadas para otimizar buscas e cadastros.
+Este relatório apresenta o desenvolvimento de um sistema de gerenciamento de livros para bibliotecas, utilizando a linguagem de programação C. O projeto visa facilitar consultas e organização do acervo, atendendo a uma necessidade crescente de eficiência, especialmente em bibliotecas públicas, como a Biblioteca Nacional, que recentemente recebeu um investimento significativo para modernização. Técnicas como listas são aplicadas para otimizar buscas e cadastros.
 
 ## Palavras-chave
-Árvores Binárias, Biblioteca, C, Gerenciamento, Organização de Acervo
+Biblioteca, C, Gerenciamento, Lista encadeada, Organização de Acervo
 
 ## Introdução
 ### Problema
@@ -36,7 +36,7 @@ Análise comparativa:
 As três fontes se complementam ao unir perspectivas inspiracionais, técnicas e práticas. Enquanto a modernização da Biblioteca Nacional ressalta a importância de um sistema eficiente e acessível, o artigo do FreeCodeCamp contribui com a base técnica para otimizar o desempenho do sistema. O trabalho acadêmico, por sua vez, apresenta funcionalidades práticas, criando um guia direto para a implementação de um gerenciador de bibliotecas. Essa integração sustenta o desenvolvimento do projeto em múltiplos níveis.
 
 ### Dataset
-O sistema não depende de um dataset pré-existente, mas permitirá o cadastro dinâmico de livros pelos usuários. Cada entrada incluirá campos como:  
+O sistema possui um dataset pré-existente com mais de 100 livros, mas permitirá o cadastro dinâmico de livros pelos usuários. Cada entrada incluirá campos como:  
 - Título  
 - Autor  
 - Gênero  
@@ -135,34 +135,3 @@ AGÊNCIA BRASIL. Biblioteca Nacional receberá este ano investimentos de R$ 30 m
 FREECODECAMP. Algoritmos de ordenação explicados com exemplos em Python, Java e C. FreeCodeCamp, 2023. Disponível em: https://www.freecodecamp.org/portuguese/news/algoritmos-de-ordenacao-explicados-com-exemplos-em-python-java-e-c/.1 Acesso em: 21 de novembro de 2024.
 
 MARTINS, Giovanne Marangoni. Sistema de gerenciamento para biblioteca. 2015. Trabalho de Conclusão de Curso (Tecnologia em Análise e Desenvolvimento de Sistemas) - Fundação Educacional do Município de Assis, Assis, 2015.
-
-
-## Instalação
-
-1. Clone o repositório:
-    ```bash
-    git clone https://github.com/2024-2-INF0063-AED1/semin-rio-rocket.git
-    ```
-2. Acesse o diretório do projeto:
-    ```bash
-    cd semin-rio-rocket
-    ```
-## Contribuição
-
-1. Faça um fork do projeto.
-2. Crie uma nova branch:
-    ```bash
-    git checkout -b feature/nova-funcionalidade
-    ```
-3. Faça as alterações desejadas e commit:
-    ```bash
-    git commit -m 'Adiciona nova funcionalidade'
-    ```
-4. Envie para o repositório remoto:
-    ```bash
-    git push origin feature/nova-funcionalidade
-    ```
-5. Abra um Pull Request.
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENCE) para mais detalhes.
