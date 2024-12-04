@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include "usuario.h"
+#include "../include/usuario.h"
 
 // Declaração do array de usuários
 Usuario listaUsuarios[MAX_USUARIOS];
@@ -9,17 +9,17 @@ Usuario listaUsuarios[MAX_USUARIOS];
 // Função para inicializar a lista de usuários com alguns dados iniciais
 void inicializaUsuarios() {
     // Dados iniciais dos usuários
-    Usuario usuariosIniciais[] = {
+    Usuario listaUsuarios[] = {
         {1, "Julia Oliveira", "Rua GitHub", "1234567891"},
         {2, "Diogo Quintão", "Avenida GitLab", "1234567891"},
         {3, "Lucas Pereira", "Praça Git", "1234567891"}
     };
     
     // Calcula o número de usuários iniciais
-    int numUsuariosIniciais = sizeof(usuariosIniciais) / sizeof(usuariosIniciais[0]);
+    int numlistaUsuarios = sizeof(listaUsuarios) / sizeof(listaUsuarios[0]);
     // Copia os dados iniciais para a lista de usuários
-    for (int i = 0; i < numUsuariosIniciais && i < MAX_USUARIOS; i++) {
-        listaUsuarios[i] = usuariosIniciais[i];
+    for (int i = 0; i < numlistaUsuarios && i < MAX_USUARIOS; i++) {
+        listaUsuarios[i] = listaUsuarios[i];
     }
 }
 
