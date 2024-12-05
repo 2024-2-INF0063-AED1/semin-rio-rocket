@@ -3,74 +3,32 @@
 ## Autores 
 - **Diogo de Paula Quintão** (202207108)
 - **Júlia Oliveira Cardoso da Silva** (202206128)
-- **Lucas Pereira Brito** (202201649)
+- **Lucas Pereira Brito** (202201649)
   
 ## Resumo
-Este relatório apresenta o desenvolvimento de um sistema de gerenciamento de livros para bibliotecas, utilizando a linguagem de programação C. O projeto visa facilitar consultas e organização do acervo, atendendo a uma necessidade crescente de eficiência, especialmente em bibliotecas públicas, como a Biblioteca Nacional, que recentemente recebeu um investimento significativo para modernização. Técnicas como listas e árvores binárias são aplicadas para otimizar buscas e cadastros.
+Este documento apresenta o desenvolvimento de um sistema de gerenciamento de acervo bibliográfico para bibliotecas, empregando a linguagem de programação C.O projeto objetiva otimizar a consulta e organização do acervo, atendendo à demanda por maior eficiência e modernização.  Para tanto, foram utilizadas técnicas de listas, visando otimizar os processos de busca e cadastramento.
 
 ## Palavras-chave
-Árvores Binárias, Biblioteca, C, Gerenciamento, Organização de Acervo
+Biblioteca, C, Estrutura de dados, Gerenciamento, Lista encadeada, Organização de Acervo
 
 ## Introdução
 ### Problema
-O Biblioteca Manager é um sistema desenvolvido para facilitar o gerenciamento de acervos bibliográficos em bibliotecas. Com o crescimento contínuo da quantidade de livros e a necessidade de organização eficaz, as bibliotecas enfrentam desafios como controle de inventário, gestão de empréstimos e facilidade de acesso à informação. Este projeto busca oferecer uma solução intuitiva e eficiente para melhorar a administração de acervos, otimizando o processo de cadastro, consulta, empréstimo e devolução de livros.
+O Sistema de Gerenciamento de Biblioteca é uma solução desenvolvida para otimizar a administração de acervos bibliográficos.  Considerando o aumento contínuo do volume de materiais e a necessidade de organização eficiente, bibliotecas enfrentam desafios na gestão de inventário, empréstimos e acesso à informação.  Este projeto visa fornecer uma ferramenta intuitiva e eficaz para aprimorar a administração de acervos, otimizando os processos de cadastramento, consulta, empréstimo e devolução de livros.
 
 ### Literatura
 
-Nesta seção, Apresentamos três fontes relevantes que fundamentam o desenvolvimento do sistema gerenciador de livros, destacando informações técnicas e inspiracionais.
-
-Investimentos na Biblioteca Nacional: Impulsionando o Acesso à Informação
-- Descrição: O artigo publicado pela Agência Brasil aborda os investimentos de R$ 30 milhões destinados à Biblioteca Nacional em 2023. O objetivo dos recursos é modernizar as instalações, ampliar o acesso ao acervo e priorizar iniciativas como digitalização e preservação de obras históricas.
-- Contribuição para o tema: Esta fonte inspira a implementação de melhorias em bibliotecas digitais, destacando a relevância de um sistema robusto que facilite o acesso e a gestão de acervos. As iniciativas mencionadas alinham-se com os objetivos do projeto, especialmente no que diz respeito à organização e acessibilidade dos conteúdos.
-
-Algoritmos de Ordenação em Python, Java e C: Otimização no Gerenciamento de Dados
-- Descrição: Publicado no site FreeCodeCamp, o artigo apresenta explicações detalhadas sobre algoritmos de ordenação, como Bubble Sort, Quick Sort e Merge Sort, com exemplos práticos em Python, Java e C.
-- Contribuição para o tema: Fornece embasamento técnico para otimizar a organização de dados no sistema gerenciador de livros. Aplicações diretas incluem a ordenação de listas de livros, usuários e funcionários, garantindo maior eficiência no processamento e na recuperação de informações.
-
-Sistema de Gerenciamento para Biblioteca: Uma Abordagem Acadêmica
-- Descrição: Este Trabalho de Conclusão de Curso, elaborado por Giovanne Marangoni Martins, explora o desenvolvimento de um sistema de gerenciamento para bibliotecas. Entre as funcionalidades destacadas estão o cadastro de livros, controle de empréstimos e devoluções, além da organização do acervo.
-- Contribuição para o tema: A pesquisa oferece insights práticos para o desenvolvimento de sistemas similares, servindo como referência para funcionalidades essenciais no gerenciamento de bibliotecas, como as relacionadas ao controle de fluxos e organização de registros.
-
-Análise comparativa:
-
-As três fontes se complementam ao unir perspectivas inspiracionais, técnicas e práticas. Enquanto a modernização da Biblioteca Nacional ressalta a importância de um sistema eficiente e acessível, o artigo do FreeCodeCamp contribui com a base técnica para otimizar o desempenho do sistema. O trabalho acadêmico, por sua vez, apresenta funcionalidades práticas, criando um guia direto para a implementação de um gerenciador de bibliotecas. Essa integração sustenta o desenvolvimento do projeto em múltiplos níveis.
+Esta seção apresenta três fontes que embasam o desenvolvimento do sistema de gerenciamento de livros: um investimento de R$ 30 milhões na Biblioteca Nacional em 2023, que destaca a importância da digitalização e organização de acervos; um artigo técnico sobre algoritmos de ordenação (Bubble Sort, Quick Sort e Merge Sort), útil para otimizar a organização de dados; e um TCC que aborda funcionalidades práticas de sistemas de bibliotecas, como cadastro, controle de empréstimos e organização do acervo.
 
 ### Dataset
-O sistema não depende de um dataset pré-existente, mas permitirá o cadastro dinâmico de livros pelos usuários. Cada entrada incluirá campos como:  
-- Título  
-- Autor  
-- Gênero  
-- Código de identificação (ID)  
-- Status de empréstimo
-  
-Esses dados serão armazenados em listas para facilitar a consulta.
+O sistema utiliza um conjunto de dados preexistentes contendo mais de 100 livros, com a funcionalidade adicional de permitir o cadastramento dinâmico de novos livros pelos usuários.  Cada registro incluirá os seguintes campos: Título, Autor, Gênero, Código de Identificação (ID) e Status de Empréstimo.  A estrutura de dados escolhida para armazenamento é a lista encadeada, otimizando as operações de consulta.
 ### Métodos
 Os métodos revisados incluirão o uso de listas como estrutura principal para o armazenamento de usuários e livros no sistema. Paralelamente, será realizada uma análise detalhada de diferentes algoritmos de ordenação, como Bubble Sort, Quick Sort e Merge Sort, a fim de identificar aquele que oferece o melhor desempenho e eficiência para as necessidades específicas do projeto. Essa abordagem garantirá uma organização eficiente dos dados e um processamento otimizado dentro do sistema gerenciador.
+
 ### Avaliação
-Os resultados serão medidos utilizando métricas como:
-- Complexidade Temporal: Analisando o tempo necessário para operações como inserção, remoção e busca em diferentes estruturas.
-- Uso da Memória: Avaliando a eficiência do uso da memória pelas estruturas implementadas.
-Essas métricas permitirão uma avaliação abrangente da eficácia do gerenciador de livros proposto sob a perspectiva das estruturas de dados.
+A avaliação do sistema será baseada em métricas de desempenho e funcionalidade. Serão medidos o tempo médio de execução para consultas e operações de ordenação, bem como a eficiência do uso de memória. A usabilidade será avaliada por meio de testes com usuários, analisando a facilidade de cadastramento, consulta e organização de acervos. A precisão das operações de empréstimo e devolução também será monitorada para garantir a confiabilidade do sistema.
 
 ### Fundamentos Teóricos
-O desenvolvimento do Biblioteca Manager foi fundamentado em conceitos de estruturas de dados, algoritmos de ordenação e técnicas de busca eficientes.
-
-**2.1 Estruturas de Dados**
--Listas encadeadas: Utilizadas para armazenar e manipular dinamicamente os registros de livros e usuários. Sua flexibilidade permite inserções e exclusões sem necessidade de realocação de memória.
--Árvores Binárias de Busca (BST): Implementadas para otimizar buscas por títulos e autores. As BSTs garantem complexidade média de O(logn) para operações de busca, inserção e remoção.
-
-**2.2 Algoritmos de Ordenação**
--Foram avaliados algoritmos clássicos como Bubble Sort, Quick Sort e Merge Sort, sendo o Quick Sort escolhido para ordenar livros por critérios como título ou autor, devido ao seu desempenho médio de O(nlogn).
-
-**2.3 Gerenciamento de Memória em C**
--A linguagem C exige controle explícito de memória, o que implica na utilização de funções como malloc e free para alocação e desalocação dinâmica, garantindo eficiência no uso de recursos.
-
-**2.4 Modelagem do Problema**
--Para atender aos requisitos de cadastro, empréstimo e organização do acervo, o sistema foi modelado com estruturas específicas:
-
-**Livro**: Representado por uma struct contendo campos como título, autor, categoria, status de empréstimo e ID único.
-**Usuário**: Struct que armazena informações pessoais e histórico de empréstimos.
-Esses fundamentos garantem a base teórica para o desenvolvimento de um sistema robusto e eficiente.
+Utilizando listas encadeadas para gerenciar registros de livros e usuários. O Bubble Sort foi implementado para ordenar livros por ID, aproveitando sua simplicidade. O sistema emprega alocação dinâmica de memória com malloc e free, e structs específicas para livros e usuários, organizando informações como título, autor, categoria, status e histórico de empréstimo.
 
 ## Metodologia
 
@@ -100,33 +58,26 @@ Esses fundamentos garantem a base teórica para o desenvolvimento de um sistema 
 
 ---
 
-### **4. Resultados e Conclusões**
 
 #### **Resultados**
 O **Biblioteca Manager** alcançou os objetivos propostos, entregando um sistema funcional para gerenciamento de acervos bibliográficos. Os principais resultados obtidos incluem:
 
 | **Funcionalidade**              | **Resultado Obtido**                                                                                          |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------|
-| **Cadastro de Livros**          | Permitiu a inclusão de livros com dados como título, autor, categoria e status, organizados em uma lista eficiente. |
-| **Busca de Livros**             | Implementou uma busca eficiente utilizando árvores binárias para localizar livros por título ou autor.       |
+| **Cadastro de Livros**          | Permitiu a inclusão de livros com dados como título, autor, categoria e status, organizados em uma lista. |
+| **Busca de Livros**             | Implementou uma busca  para localizar livros por título ou autor.       |
 | **Empréstimos e Devoluções**    | Gerenciou com sucesso o status de empréstimos, alterando entre "disponível" e "indisponível" conforme necessário. |
 | **Listagem por Categoria**      | Exibiu listas de livros categorizados, melhorando a organização e a acessibilidade do acervo.                |
-| **Testes de Performance**       | Validou a eficiência do sistema em termos de busca e ordenação, com tempos satisfatórios para operações em diferentes volumes de dados. |
+| **Testes**       | Concluiu os testes relativos aos livros com sucesso, porém identificou problemas relacionados aos usuários. |
 
 #### **Conclusões**
-Durante o desenvolvimento, diversas lições foram aprendidas, tanto no âmbito técnico quanto na gestão do projeto. Destacamos as principais reflexões e aprendizados:
+Durante o desenvolvimento, foram adquiridas valiosas lições tanto no âmbito técnico quanto na gestão do projeto. Entre os principais aprendizados, destacam-se:
+- A importância de seguir convenções claras para os commits, promovendo maior rastreabilidade;
+- O uso de branches feature para organizar o fluxo de trabalho e facilitar a colaboração;
+- A relevância de criar bibliotecas separadas para modularidade e reutilização de código.
 
-| **Aspecto**                 | **Lições Aprendidas**                                                                                         |
-|-----------------------------|-------------------------------------------------------------------------------------------------------------|
-| **Planejamento e Organização** | A importância de um planejamento inicial bem estruturado, incluindo o levantamento de requisitos e a definição clara de funcionalidades.   |
-| **Estruturas de Dados**       | O uso de listas encadeadas e árvores binárias foi essencial para otimizar a performance do sistema, consolidando o entendimento prático dessas estruturas. |
-| **Algoritmos de Ordenação**   | A escolha de algoritmos adequados, como o Quick Sort, demonstrou a relevância de analisar o custo-benefício de cada método no contexto do problema. |
-| **Gerenciamento de Memória**  | Trabalhar com alocação e desalocação dinâmica em C reforçou a importância de práticas responsáveis para evitar vazamentos de memória.         |
-| **Colaboração em Equipe**     | A integração entre os membros foi crucial para dividir tarefas, resolver problemas complexos e unificar o trabalho final de maneira coesa.     |
-| **Testes e Validação**        | A execução de testes em cenários reais evidenciou a necessidade de simular situações práticas para garantir a robustez do sistema.             |
-| **Desafios e Superação**      | Lidamos com dificuldades, como bugs inesperados e escolhas subótimas de estrutura, mas o aprendizado adquirido com a resolução desses problemas foi enriquecedor. |
+De modo geral, o Biblioteca Manager não apenas cumpriu os objetivos iniciais, mas também proporcionou aos desenvolvedores uma oportunidade prática de aplicar e consolidar conhecimentos teóricos. A experiência reforçou competências técnicas e colaborativas, preparando o grupo para enfrentar futuros desafios no campo da Engenharia de Computação.
 
-No geral, o **Biblioteca Manager** não apenas cumpriu os objetivos iniciais, mas também proporcionou aos desenvolvedores uma oportunidade única de aplicar e consolidar conhecimentos teóricos em um projeto prático. A experiência reforçou habilidades técnicas e colaborativas, preparando o grupo para desafios futuros no campo da Engenharia de Computação.
 
 ## Referências
 
@@ -135,34 +86,3 @@ AGÊNCIA BRASIL. Biblioteca Nacional receberá este ano investimentos de R$ 30 m
 FREECODECAMP. Algoritmos de ordenação explicados com exemplos em Python, Java e C. FreeCodeCamp, 2023. Disponível em: https://www.freecodecamp.org/portuguese/news/algoritmos-de-ordenacao-explicados-com-exemplos-em-python-java-e-c/.1 Acesso em: 21 de novembro de 2024.
 
 MARTINS, Giovanne Marangoni. Sistema de gerenciamento para biblioteca. 2015. Trabalho de Conclusão de Curso (Tecnologia em Análise e Desenvolvimento de Sistemas) - Fundação Educacional do Município de Assis, Assis, 2015.
-
-
-## Instalação
-
-1. Clone o repositório:
-    ```bash
-    git clone https://github.com/2024-2-INF0063-AED1/semin-rio-rocket.git
-    ```
-2. Acesse o diretório do projeto:
-    ```bash
-    cd semin-rio-rocket
-    ```
-## Contribuição
-
-1. Faça um fork do projeto.
-2. Crie uma nova branch:
-    ```bash
-    git checkout -b feature/nova-funcionalidade
-    ```
-3. Faça as alterações desejadas e commit:
-    ```bash
-    git commit -m 'Adiciona nova funcionalidade'
-    ```
-4. Envie para o repositório remoto:
-    ```bash
-    git push origin feature/nova-funcionalidade
-    ```
-5. Abra um Pull Request.
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENCE) para mais detalhes.

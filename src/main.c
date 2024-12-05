@@ -5,6 +5,8 @@
 #include "biblioteca.h"
 #include "usuario.h"
 
+#define SENHA_PADRAO "admin123"
+
 void menuUsuario(int idUsuario)
 {
     int opcao;
@@ -153,14 +155,15 @@ int main()
             } while (opcaoUsuario != 0);
             break;
         }
-        case 2:{
+        case 2:
+        {
             int opcaoBibliotecario;
-
+            char senha[10];
             printf("\n=== Acesso de Bibliotecário ===\n");
-            printf("Digite seu ID: ");
-            scanf("%d", &idUsuario);
+            printf("Digite a senha de acesso: ");
+            scanf("%9s", senha);
 
-            if (usuario_cadastrado(idUsuario))
+            if (strcmp(senha, SENHA_PADRAO) == 0)
             {
                 do
                 {
@@ -170,6 +173,7 @@ int main()
                     printf("3. Adicionar livro\n");
                     printf("4. Atualizar livro\n");
                     printf("5. Remover livro\n");
+                    printf("6. Visualizar livros emprestados\n");
                     printf("0. Voltar\n");
                     printf("Escolha uma opção: ");
 
@@ -264,17 +268,28 @@ int main()
                         atualizarLivro(id, titulo, autor, categoria, ano, status);
                         break;
                     }
-                    case 5: {
+                    case 5:
+                    {
                         int id;
                         printf("Digite o ID do livro para remoção: ");
                         scanf("%d", &id);
                         removerLivro(id);
                         break;
                     }
+                    case 6:
+                    {
+                        StatusLivro status = INDISPONIVEL;
+                        buscarLivroPorStatus(status);
+                        break;
+                    }
                     case 0:
                         break;
                     }
                 } while (opcaoBibliotecario != 0);
+            }
+            else
+            {
+                printf("Senha inválida!\n");
             }
             break;
         }

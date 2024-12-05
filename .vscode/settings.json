@@ -61,6 +61,8 @@
     "stdbool.h": "c",
     "usuario.h": "c",
     "biblioteca.h": "c",
-    "windows.h": "c"
+    "windows.h": "c",
+    "string.h": "c",
+    "unity.h": "c"
   }
 }
